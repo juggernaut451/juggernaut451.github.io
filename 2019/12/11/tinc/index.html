@@ -16,7 +16,7 @@
   
   
   
-    <meta name="description" content="I was observing the traffic &amp; suddenly realised that someone is trying to penetrate our servers. Then I realise the need for a secure connection. I surf the web to get easy and reliable vpn. So...">
+    <meta name="description" content="I was observing the traffic &amp; suddenly realized that someone is trying to penetrate our servers. Then I realize the need for a secure connection. I surf the web to get an easy and reliable VPN....">
   
   <title>Tinc - Fast & Easy VPN [ Juggernaut451 ]</title>
   
@@ -138,12 +138,11 @@
       
     </p>
     
-    <p>I was observing the traffic &amp; suddenly realised that someone is trying to penetrate our servers. Then I realise the need for a secure connection. I surf the web to get easy and reliable vpn. So according to wikipedia, “A virtual private network (VPN) extends a private network across a public network, and enables users to send and receive data across shared or public networks as if their computing devices were directly connected to the private network.”</p>
-<p>After spending time reading the reviews online. I came to close the search with tinc. Tinc website defines it as, “ daemon that uses tunnelling and encryption to create a secure private network between hosts on the Internet.”</p>
-<p>Setup of tinc is not difficult. What is important to understand is some additional steps that needs to be added in tutorial part. As I was using ubuntu 18.04. Following are the steps that need to be implemented before following the tutorial.</p>
+    <p>I was observing the traffic &amp; suddenly realized that someone is trying to penetrate our servers. Then I realize the need for a secure connection. I surf the web to get an easy and reliable VPN. So according to Wikipedia, “A virtual private network (VPN) extends a private network across a public network, and enables users to send and receive data across shared or public networks as if their computing devices were directly connected to the private network.”</p>
+<p>After spending time reading the reviews online. I came to close the search with tinc. Tinc website defines it as, “ daemon that uses tunneling and encryption to create a secure private network between hosts on the Internet.”<br>The setup of tinc is not difficult. What is important to understand is some additional steps that need to be added in the tutorial part. As I was using ubuntu 18.04. The following are the steps that need to be implemented before following the tutorial.</p>
 <p>Firstly, one need to install nettool and then install tinc.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install net-tools</span><br><span class="line">sudo apt install tinc</span><br></pre></td></tr></table></figure>
-<p>As soon as you install the tinc. Next is to add virtual network.</p>
+<p>As soon as you install the tinc. Next is to add a virtual network.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ip tuntap add mode tun tun0</span><br></pre></td></tr></table></figure>
 <p>After that you can follow the Digital Ocean blog for the access and setup. Which can be found <a href="https://www.digitalocean.com/community/tutorials/how-to-install-tinc-and-set-up-a-basic-vpn-on-ubuntu-14-04" target="_blank" rel="noopener">here</a>.</p>
 
