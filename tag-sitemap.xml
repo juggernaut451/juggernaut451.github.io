@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>http://ashutoshksingh.com/tags/debutsav-talk-debian/</loc>
+        <lastmod>2020-08-03T00:46:57.547Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://ashutoshksingh.com/tags/pm2-slack-flock-npm/</loc>
         <lastmod>2020-07-04T00:37:14.647Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,35 +31,14 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/pydelhiConf/</loc>
+        <loc>http://ashutoshksingh.com/tags/terminal/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/download/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/youtube/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/mtnl/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/bsnl/</loc>
+        <loc>http://ashutoshksingh.com/tags/shell/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -60,41 +46,6 @@
 
     <url>
         <loc>http://ashutoshksingh.com/tags/hexo/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/visiting-card/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/unique/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/makerspace/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/developer/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/concept/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -143,6 +94,55 @@
     </url>
 
     <url>
+        <loc>http://ashutoshksingh.com/tags/torrent/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/computer/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/download/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/youtube/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/mtnl/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/bsnl/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/pydelhiConf/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://ashutoshksingh.com/tags/virtual-box/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -165,6 +165,41 @@
 
     <url>
         <loc>http://ashutoshksingh.com/tags/packer/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/visiting-card/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/unique/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/makerspace/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/developer/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/concept/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -199,14 +234,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/torrent/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/computer/</loc>
+        <loc>http://ashutoshksingh.com/tags/github/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -276,6 +304,34 @@
     </url>
 
     <url>
+        <loc>http://ashutoshksingh.com/tags/reduce/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/python3/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/Lambda/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/filter/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://ashutoshksingh.com/tags/sqlite/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -297,7 +353,35 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/github/</loc>
+        <loc>http://ashutoshksingh.com/tags/tab/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/samsung/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/repair/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/hardware/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/3/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -339,34 +423,6 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/tab/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/samsung/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/repair/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/hardware/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/tags/sails-eslint/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -402,7 +458,21 @@
     </url>
 
     <url>
+        <loc>http://ashutoshksingh.com/tags/birthday/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://ashutoshksingh.com/tags/relay/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/pydelhiconf/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -451,20 +521,6 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/pydelhiconf/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/birthday/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/tags/wordpress/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -494,6 +550,20 @@
 
     <url>
         <loc>http://ashutoshksingh.com/tags/difference/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/PHP/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/installation/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -542,20 +612,6 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/PHP/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/installation/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/tags/sixpack/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -564,27 +620,6 @@
 
     <url>
         <loc>http://ashutoshksingh.com/tags/A-B-testing/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/best-practice/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/logging/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/log/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -619,35 +654,28 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/reduce/</loc>
+        <loc>http://ashutoshksingh.com/tags/best-practice/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/python3/</loc>
+        <loc>http://ashutoshksingh.com/tags/logging/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/Lambda/</loc>
+        <loc>http://ashutoshksingh.com/tags/log/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/filter/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/3/</loc>
+        <loc>http://ashutoshksingh.com/tags/knowledge/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -668,7 +696,63 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/knowledge/</loc>
+        <loc>http://ashutoshksingh.com/tags/roadtonaukri-com/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/pypi/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/pip/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/package/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/interview/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/internship/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/firstexperience/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/python/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/kivy/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -696,6 +780,13 @@
     </url>
 
     <url>
+        <loc>http://ashutoshksingh.com/tags/pydelhi/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://ashutoshksingh.com/tags/greater-noida/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -717,14 +808,28 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/pydelhi/</loc>
+        <loc>http://ashutoshksingh.com/tags/rtn/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/kivy/</loc>
+        <loc>http://ashutoshksingh.com/tags/roadtonaukri/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/nir-eyal/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/hooked/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -773,21 +878,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/ssh/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/git/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/commit/</loc>
+        <loc>http://ashutoshksingh.com/tags/ubuntu/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -829,105 +920,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/nir-eyal/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/hooked/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/rtn/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/roadtonaukri-com/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/roadtonaukri/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/python/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/pypi/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/pip/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/package/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/ubuntu/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/terminal/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/shell/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/interview/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/internship/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/firstexperience/</loc>
+        <loc>http://ashutoshksingh.com/tags/ssh/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -949,6 +942,41 @@
 
     <url>
         <loc>http://ashutoshksingh.com/tags/firefox/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/git/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/commit/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/tokrn/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/eve/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/authorization/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -1032,69 +1060,6 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/tags/tokrn/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/eve/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/authorization/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/token/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/sharred-preference/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/management/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/droid/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/authentication/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/tags/andrid/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/tags/work/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1152,6 +1117,48 @@
 
     <url>
         <loc>http://ashutoshksingh.com/tags/android/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/token/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/sharred-preference/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/management/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/droid/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/authentication/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/tags/andrid/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
