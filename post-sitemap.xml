@@ -152,6 +152,30 @@
     </url>
 
     <url>
+        <loc>http://ashutoshksingh.com/2018/03/26/gmail-push-notification/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/2016/10/25/hooked/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/2014/11/02/how-to-disable-graphic-card-in-kubuntu/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ashutoshksingh.com/2017/12/20/https/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -168,31 +192,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2015/10/18/its-workshop/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/2015/08/23/kivy-with-pydelhi/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/2014/06/11/installing-drupal/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/2014/03/13/know-ur-representative/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -208,22 +208,6 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2014/05/04/knowledgequotation/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/2016/01/01/lambda-filter-reduce/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/2017/11/01/logging/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -232,15 +216,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2018/03/26/gmail-push-notification/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/2014/11/02/how-to-disable-graphic-card-in-kubuntu/</loc>
+        <loc>http://ashutoshksingh.com/2016/01/16/mobile-as-a-microbit-pydelhimeetup/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -256,7 +232,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2016/04/04/nsit/</loc>
+        <loc>http://ashutoshksingh.com/2014/05/04/knowledgequotation/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -264,7 +240,15 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2016/01/05/port-and-socket/</loc>
+        <loc>http://ashutoshksingh.com/2015/08/23/kivy-with-pydelhi/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/2014/03/13/know-ur-representative/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -288,7 +272,23 @@
     </url>
 
     <url>
+        <loc>http://ashutoshksingh.com/2016/01/05/port-and-socket/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ashutoshksingh.com/2018/02/03/postgres/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/2016/04/04/nsit/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -320,23 +320,23 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2016/10/25/hooked/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/2015/10/11/pycon-banglore/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/2016/07/04/python-byte-elongating-battery-lifepydelhi/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/2014/10/15/rooting-phone/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/2018/07/10/rtn/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -384,15 +384,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2014/10/15/rooting-phone/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ashutoshksingh.com/2018/07/10/rtn/</loc>
+        <loc>http://ashutoshksingh.com/2014/06/18/ssh-with-git-on-kubuntu/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -416,7 +408,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2014/06/18/ssh-with-git-on-kubuntu/</loc>
+        <loc>http://ashutoshksingh.com/2014/11/01/torrent-transfer-from-one-computer-to-another/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -424,7 +416,15 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2014/11/01/torrent-transfer-from-one-computer-to-another/</loc>
+        <loc>http://ashutoshksingh.com/2016/02/25/vagrant-packer-virtual-box/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/2016/02/25/valentine-python-2016/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -488,7 +488,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2016/02/25/vagrant-packer-virtual-box/</loc>
+        <loc>http://ashutoshksingh.com/2015/10/18/its-workshop/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -496,7 +496,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2016/02/25/valentine-python-2016/</loc>
+        <loc>http://ashutoshksingh.com/2015/10/11/pycon-banglore/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -504,7 +504,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/2016/01/16/mobile-as-a-microbit-pydelhimeetup/</loc>
+        <loc>http://ashutoshksingh.com/2016/01/01/lambda-filter-reduce/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
