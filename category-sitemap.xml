@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>http://ashutoshksingh.com/categories/experience/pydelhi/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://ashutoshksingh.com/categories/pydelhi/work/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -22,13 +29,6 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/categories/unique/work/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/categories/pydelhi/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -37,6 +37,13 @@
 
     <url>
         <loc>http://ashutoshksingh.com/categories/experience/installation/work/</loc>
+        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://ashutoshksingh.com/categories/unique/work/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -64,13 +71,6 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/categories/experience/javascript/work/</loc>
-        <lastmod>2019-04-04T13:07:40.657Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://ashutoshksingh.com/categories/installation/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -78,7 +78,7 @@
     </url>
 
     <url>
-        <loc>http://ashutoshksingh.com/categories/experience/pydelhi/</loc>
+        <loc>http://ashutoshksingh.com/categories/experience/javascript/work/</loc>
         <lastmod>2019-04-04T13:07:40.657Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
