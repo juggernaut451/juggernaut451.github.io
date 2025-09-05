@@ -1,0 +1,449 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="Same origin resource sharring is a important concept in web. In this policy a web browser permits scripts contained in a first web page to access data in a second web page, but only if both web pag...">
+  
+  <title>Same Origin Resoure Sharing [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2017/12/20/https/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        HTTPS on Express, Sails
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2017/11/01/logging/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Logging
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Same Origin Resoure Sharing</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2017-12-14</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 7 min. read </span>
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/web-development/">web development</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/cors/">cors</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/web-socket/">web socket</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/origin-sharring/">origin sharring</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/web-development/">web development</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/jsonp/">jsonp</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>Same origin resource sharring is a important concept in web. In this policy a web browser permits scripts contained in a first web page to access data in a second web page, but only if both web pages have the same origin. An origin is defined as a combination of URI scheme, host name, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page’s Document Object Model.</p>
+<p>We can imply this policy by the following ways</p>
+<ul>
+<li>CORS</li>
+<li>JSONP</li>
+<li>Cross Document Sharring</li>
+<li>Document Domain Property</li>
+<li>WebSockets</li>
+</ul>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources (e.g. image) on a web page to be requested from another domain outside the domain from which the first resource was served. Certain “cross-domain” requests,are forbidden by default by the same-origin security policy.</p>
+<h4 id="Now-lets-understand-how-CORS-work"><a href="#Now-lets-understand-how-CORS-work" class="headerlink" title="Now lets understand how CORS work?"></a>Now lets understand how CORS work?</h4><p>The CORS standard describes new HTTP headers which provide browsers and servers a way to request remote URLs only when they have permission. Although some validation and authorization can be performed by the server, it is generally the browser’s responsibility to support these headers and honor the restrictions they impose.<br>Firstly a http header as  HTTP OPTIONS request method is sent, and then, upon “approval” from the server. It clarrifies which all method are allowed and is there any authentication required or not. Which is followed by sending the actual request with the actual HTTP request method.<br>Below is the flowchart for the above</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Flowchart_showing_Simple_and_Preflight_XHR.svg"></p>
+<h4 id="Let’s-understand-this-with-an-example"><a href="#Let’s-understand-this-with-an-example" class="headerlink" title="Let’s understand this with an example."></a>Let’s understand this with an example.</h4><p>When a CORS-compatible browser attempts to make a cross-origin request.</p>
+<ol>
+<li><p>It sends OPTION request with origin HTTP Header. When a page from <a href="http://www.juggernaut451.com/">http://www.juggernaut451.com</a> attempts to access a user’s data in test.juggernaut451.com, the following request header would be sent to test.juggernaut451.com which would basically tell the server from where the request have been generated.</p>
+<p> <code>Origin: http://www.juggernaut451.com</code></p>
+</li>
+<li><p>Server on test.juggernaut451.com could reply with one of the following option:</p>
+<ul>
+<li><p>An Access-Control-Allow-Origin (ACAO) header in its response indicating which origin sites are allowed. For example:</p>
+<p>  <code>Access-Control-Allow-Origin: http://www.example.com</code></p>
+</li>
+<li><p>An error page if the server does not allow the cross-origin request</p>
+</li>
+<li><p>An Access-Control-Allow-Origin (ACAO) header with a wildcard that allows all domains:</p>
+<p>  <code>Access-Control-Allow-Origin: *</code></p>
+<p>  A wildcard same-origin policy is appropriate when a page or API response is considered completely public content and it is intended to be accessible to everyone, including any code on any site.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>JSONP, which stands for JSON stands for JavaScript Object Notation with padding, is a way to get data from another domain that bypasses CORS (Cross Origin Resource Sharing) rules. Due to inherent insecurities, JSONP is being replaced by CORS.</p>
+<h4 id="How-JSONP-works"><a href="#How-JSONP-works" class="headerlink" title="How JSONP works?"></a>How JSONP works?</h4><p>First a request is make to server that is JSONP enabled. In this request you pass a special parameter that tells the server a little bit about your page. That way, the server is able to nicely wrap up its response in a way that your page can handle. For example if a server is JSON enable it would expects a parameter called “callback” to enable its JSONP capabilities. The request would look like</p>
+<p><code>http://www.juggernaut451.com/sample.aspx?callback=mycallback</code></p>
+<p>Without JSONP, this might return some basic JavaScript object, like so:</p>
+<p><code>&#123; foo: &#39;bar&#39; &#125;</code></p>
+<p>However, with JSONP, when the server receives the “callback” parameter, it wraps up the result a little differently, returning something like this:</p>
+<p><code>mycallback(&#123; foo: &#39;bar&#39; &#125;);</code></p>
+<p>As you can see, it will now invoke the method you specified. So, in your page, you define the callback function:</p>
+<p><code>mycallback = function(data)&#123;   alert(data.foo); &#125;;</code></p>
+<p>And now, when the script is loaded, it’ll be evaluated, and your function will be executed. Voila, cross-domain requests!</p>
+<p>It’s also worth noting the one major issue with JSONP: you lose a lot of control of the request. For example, there is no “nice” way to get proper failure codes back. As a result, you end up using timers to monitor the request, etc, which is always a bit suspect.</p>
+<h2 id="Cross-Document-Messaging"><a href="#Cross-Document-Messaging" class="headerlink" title="Cross Document Messaging"></a>Cross Document Messaging</h2><p>Another technique, cross-document messaging allows a script from one page to pass textual messages to a script on another page regardless of the script origins. Calling the postMessage() method on a Window object asynchronously fires an “onmessage” event in that window, triggering any user-defined event handlers. A script in one page still cannot directly access methods or variables in the other page, but they can communicate safely through this message-passing technique.</p>
+<h2 id="Document-Domain-Property"><a href="#Document-Domain-Property" class="headerlink" title="Document Domain Property"></a>Document Domain Property</h2><p>If two windows (or frames) contain scripts that set domain to the same value, the same-origin policy is relaxed for these two windows, and each window can interact with the other. For example, cooperating scripts in documents loaded from orders.example.com and catalog.example.com might set their document.domain properties to “example.com”, thereby making the documents appear to have the same origin and enabling each document to read properties of the other. This might not always work as the port stored in the internal representation can become marked as null. In other words, example.com port 80 will become example.com port null because we update document.domain. Port null might not be treated as 80 (depending on your browser) and hence might fail or succeed depending on your browser.</p>
+<h2 id="WebSockets"><a href="#WebSockets" class="headerlink" title="WebSockets"></a>WebSockets</h2><p>Modern browsers will permit a script to connect to a WebSocket address without applying the same-origin policy. However, they recognize when a WebSocket URI is used, and insert an Origin: header into the request that indicates the origin of the script requesting the connection. To ensure cross-site security, the WebSocket server must compare the header data against a whitelist of origins permitted to receive a reply.</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS"><span class="toc-text">CORS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Now-lets-understand-how-CORS-work"><span class="toc-text">Now lets understand how CORS work?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Let%E2%80%99s-understand-this-with-an-example"><span class="toc-text">Let’s understand this with an example.</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP"><span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#How-JSONP-works"><span class="toc-text">How JSONP works?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cross-Document-Messaging"><span class="toc-text">Cross Document Messaging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Document-Domain-Property"><span class="toc-text">Document Domain Property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebSockets"><span class="toc-text">WebSockets</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2017/12/20/https/" class="prev">&larr; Prev post HTTPS on Express, Sails</a>
+  
+
+  
+
+  
+    <a href="/2017/11/01/logging/" class="next">Next post Logging &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

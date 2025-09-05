@@ -1,0 +1,432 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="Setting Up a Personal VPN with WireGuardIntroductionManaging multiple devices on a home network can be challenging, especially when ensuring they remain inaccessible from public networks. Instead o...">
+  
+  <title>DIY VPN Setup: How I Secured My Home Network with WireGuard [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2024/12/10/Conquering-a-New-Programming-Language-A-Practical-Guide/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Conquering a New Programming Language: A Practical Guide
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2024/05/07/anydo-todoist/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        anydo todoist
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>DIY VPN Setup: How I Secured My Home Network with WireGuard</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2024-10-29</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 4 min. read </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/vpn-wireguard-networking/">vpn, wireguard, networking</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="Setting-Up-a-Personal-VPN-with-WireGuard"><a href="#Setting-Up-a-Personal-VPN-with-WireGuard" class="headerlink" title="Setting Up a Personal VPN with WireGuard"></a>Setting Up a Personal VPN with WireGuard</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Managing multiple devices on a home network can be challenging, especially when ensuring they remain inaccessible from public networks. Instead of opting for a paid VPN, I decided to set up my own. After researching, I narrowed my options down to three VPN solutions:</p>
+<ul>
+<li><strong>OpenVPN</strong>: Feature-rich but complex and more suited for corporate environments.</li>
+<li><strong>Tinc</strong>: Decentralized but has poor documentation and lacks online support.</li>
+<li><strong>WireGuard</strong>: Lightweight, easy to configure, and widely recommended.</li>
+</ul>
+<p>I chose <strong>WireGuard</strong> due to its simplicity and strong security.</p>
+<hr>
+<h2 id="VPN-Architecture"><a href="#VPN-Architecture" class="headerlink" title="VPN Architecture"></a>VPN Architecture</h2><p>I opted for a <strong>star topology</strong>, where a single <strong>server</strong> handles multiple <strong>clients</strong> connecting to it.</p>
+<hr>
+<h2 id="Setting-Up-WireGuard-on-Ubuntu-Server"><a href="#Setting-Up-WireGuard-on-Ubuntu-Server" class="headerlink" title="Setting Up WireGuard on Ubuntu (Server)"></a>Setting Up WireGuard on Ubuntu (Server)</h2><h3 id="Step-1-Install-WireGuard"><a href="#Step-1-Install-WireGuard" class="headerlink" title="Step 1: Install WireGuard"></a>Step 1: Install WireGuard</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install wireguard</span><br></pre></td></tr></table></figure>
+
+<p>This installs two key binaries:</p>
+<ul>
+<li><code>wg</code> - Manages WireGuard interfaces.</li>
+<li><code>wg-quick</code> - A helper script to start&#x2F;stop WireGuard interfaces.</li>
+</ul>
+<h3 id="Step-2-Generate-Keys"><a href="#Step-2-Generate-Keys" class="headerlink" title="Step 2: Generate Keys"></a>Step 2: Generate Keys</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -s</span><br><span class="line"><span class="built_in">umask</span> 077</span><br><span class="line"><span class="built_in">cd</span> /etc/wireguard</span><br><span class="line">wg genkey | <span class="built_in">tee</span> privatekey | wg pubkey &gt; publickey</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-3-Configure-the-Server"><a href="#Step-3-Configure-the-Server" class="headerlink" title="Step 3: Configure the Server"></a>Step 3: Configure the Server</h3><p>Create the configuration file <code>/etc/wireguard/wg0.conf</code>:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Interface]</span></span><br><span class="line"><span class="attr">Address</span> = <span class="number">10.0</span>.<span class="number">0.1</span>/<span class="number">24</span></span><br><span class="line"><span class="attr">ListenPort</span> = <span class="number">51820</span></span><br><span class="line"><span class="attr">PrivateKey</span> = &lt;replace_with_privatekey&gt;</span><br><span class="line"></span><br><span class="line"><span class="attr">PostUp</span> = wg set %i private-key /etc/wireguard/privatekey</span><br><span class="line"><span class="attr">PostUp</span> = ufw route allow in <span class="literal">on</span> wg0 out <span class="literal">on</span> eth0</span><br><span class="line"><span class="attr">PostUp</span> = iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line"><span class="attr">PostUp</span> = ip6tables -t nat -I POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line"><span class="attr">PreDown</span> = ufw route delete allow in <span class="literal">on</span> wg0 out <span class="literal">on</span> eth0</span><br><span class="line"><span class="attr">PreDown</span> = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line"><span class="attr">PreDown</span> = ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-4-Start-the-VPN"><a href="#Step-4-Start-the-VPN" class="headerlink" title="Step 4: Start the VPN"></a>Step 4: Start the VPN</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wg-quick up wg0</span><br><span class="line">wg  <span class="comment"># Check WireGuard status</span></span><br><span class="line">systemctl <span class="built_in">enable</span> wg-quick@wg0  <span class="comment"># Enable at boot</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-5-Enable-IP-Forwarding"><a href="#Step-5-Enable-IP-Forwarding" class="headerlink" title="Step 5: Enable IP Forwarding"></a>Step 5: Enable IP Forwarding</h3><p>Edit <code>/etc/sysctl.conf</code>:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">net.ipv4.ip_forward</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>Then apply the changes:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Setting-Up-WireGuard-on-Ubuntu-Client"><a href="#Setting-Up-WireGuard-on-Ubuntu-Client" class="headerlink" title="Setting Up WireGuard on Ubuntu (Client)"></a>Setting Up WireGuard on Ubuntu (Client)</h2><h3 id="Step-1-Install-and-Generate-Keys"><a href="#Step-1-Install-and-Generate-Keys" class="headerlink" title="Step 1: Install and Generate Keys"></a>Step 1: Install and Generate Keys</h3><p>Follow steps 1-3 as above.</p>
+<h3 id="Step-2-Configure-the-Client"><a href="#Step-2-Configure-the-Client" class="headerlink" title="Step 2: Configure the Client"></a>Step 2: Configure the Client</h3><p>Create <code>/etc/wireguard/wg0.conf</code>:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Interface]</span></span><br><span class="line"><span class="attr">Address</span> = <span class="number">10.0</span>.<span class="number">0.2</span>/<span class="number">32</span></span><br><span class="line"><span class="attr">PrivateKey</span> = &lt;replace_with_privatekey&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">[Peer]</span></span><br><span class="line"><span class="attr">PublicKey</span> = &lt;server_public_key&gt;</span><br><span class="line"><span class="attr">Endpoint</span> = &lt;server_public_ip&gt;:<span class="number">51820</span></span><br><span class="line"><span class="attr">AllowedIPs</span> = <span class="number">10.0</span>.<span class="number">0.0</span>/<span class="number">24</span></span><br><span class="line"><span class="attr">PersistentKeepalive</span> = <span class="number">25</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-3-Update-Server-Configuration"><a href="#Step-3-Update-Server-Configuration" class="headerlink" title="Step 3: Update Server Configuration"></a>Step 3: Update Server Configuration</h3><p>On the server, add the client details to <code>/etc/wireguard/wg0.conf</code>:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Peer]</span></span><br><span class="line"><span class="attr">PublicKey</span> = &lt;client_public_key&gt;</span><br><span class="line"><span class="attr">AllowedIPs</span> = <span class="number">10.0</span>.<span class="number">0.2</span>/<span class="number">32</span></span><br></pre></td></tr></table></figure>
+<p>Restart the WireGuard interface:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wg-quick down wg0 &amp;&amp; wg-quick up wg0</span><br></pre></td></tr></table></figure>
+<p>To reload without downtime:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wg syncconf wg0 &lt;(wg-quick strip wg0)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-4-Start-WireGuard-on-Client"><a href="#Step-4-Start-WireGuard-on-Client" class="headerlink" title="Step 4: Start WireGuard on Client"></a>Step 4: Start WireGuard on Client</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wg-quick up wg0</span><br><span class="line">wg  <span class="comment"># Verify connection</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Setting-Up-WireGuard-on-Android"><a href="#Setting-Up-WireGuard-on-Android" class="headerlink" title="Setting Up WireGuard on Android"></a>Setting Up WireGuard on Android</h2><h3 id="Step-1-Generate-Client-Configuration"><a href="#Step-1-Generate-Client-Configuration" class="headerlink" title="Step 1: Generate Client Configuration"></a>Step 1: Generate Client Configuration</h3><p>On the server:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install qrencode</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/wireguard/clients</span><br><span class="line">wg genkey | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/wireguard/clients/mobilekey | wg pubkey | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/wireguard/clients/mobilekey.pub</span><br></pre></td></tr></table></figure>
+
+<p>Create the file <code>/etc/wireguard/clients/mobile.conf</code>:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Interface]</span></span><br><span class="line"><span class="attr">PrivateKey</span> = &lt;replace_with_mobilekey&gt;</span><br><span class="line"><span class="attr">Address</span> = &lt;your_vpn_private_ip&gt;/<span class="number">24</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Peer]</span></span><br><span class="line"><span class="attr">PublicKey</span> = &lt;server_public_key&gt;</span><br><span class="line"><span class="attr">AllowedIPs</span> = <span class="number">10.0</span>.<span class="number">0.0</span>/<span class="number">32</span></span><br><span class="line"><span class="attr">Endpoint</span> = &lt;server_wan_ip&gt;:<span class="number">51820</span></span><br></pre></td></tr></table></figure>
+
+<p>Generate a QR code for easy setup:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qrencode -t ansiutf8 &lt; /etc/wireguard/clients/mobile.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-2-Configure-on-Android"><a href="#Step-2-Configure-on-Android" class="headerlink" title="Step 2: Configure on Android"></a>Step 2: Configure on Android</h3><ul>
+<li>Install the <strong>WireGuard</strong> app.</li>
+<li>Scan the generated <strong>QR code</strong>.</li>
+<li>Save and activate the connection.</li>
+</ul>
+<hr>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>With WireGuard, setting up a <strong>personal VPN</strong> is simple, efficient, and cost-effective. This setup ensures <strong>secure remote access</strong> to your home network without exposing devices to the public internet.</p>
+<p>Enjoy your <strong>secure, private VPN</strong>!</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setting-Up-a-Personal-VPN-with-WireGuard"><span class="toc-text">Setting Up a Personal VPN with WireGuard</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPN-Architecture"><span class="toc-text">VPN Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-Up-WireGuard-on-Ubuntu-Server"><span class="toc-text">Setting Up WireGuard on Ubuntu (Server)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Install-WireGuard"><span class="toc-text">Step 1: Install WireGuard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Generate-Keys"><span class="toc-text">Step 2: Generate Keys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Configure-the-Server"><span class="toc-text">Step 3: Configure the Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Start-the-VPN"><span class="toc-text">Step 4: Start the VPN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-5-Enable-IP-Forwarding"><span class="toc-text">Step 5: Enable IP Forwarding</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-Up-WireGuard-on-Ubuntu-Client"><span class="toc-text">Setting Up WireGuard on Ubuntu (Client)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Install-and-Generate-Keys"><span class="toc-text">Step 1: Install and Generate Keys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Configure-the-Client"><span class="toc-text">Step 2: Configure the Client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Update-Server-Configuration"><span class="toc-text">Step 3: Update Server Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Start-WireGuard-on-Client"><span class="toc-text">Step 4: Start WireGuard on Client</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-Up-WireGuard-on-Android"><span class="toc-text">Setting Up WireGuard on Android</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Generate-Client-Configuration"><span class="toc-text">Step 1: Generate Client Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Configure-on-Android"><span class="toc-text">Step 2: Configure on Android</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2024/12/10/Conquering-a-New-Programming-Language-A-Practical-Guide/" class="prev">&larr; Prev post Conquering a New Programming Language: A Practical Guide</a>
+  
+
+  
+
+  
+    <a href="/2024/05/07/anydo-todoist/" class="next">Next post anydo todoist &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

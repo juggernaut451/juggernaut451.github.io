@@ -1,0 +1,399 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="I was playing with the network on Ubuntu-based machine. Suddenly my eyes got stuck on a firewall and why it is used? So as the name suggests its a “WALL”. Which blocks the way of the network.  If I...">
+  
+  <title>Uncomplicated Awesome Firewall [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2019/08/03/debutsav/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Debutsav (DELHI) 2019
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2018/10/13/nodejs-contribution/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        NodeJs Contribution
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Uncomplicated Awesome Firewall</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2019-07-30</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 5 min. read </span>
+      
+      
+    </p>
+    
+    <p>I was playing with the network on Ubuntu-based machine. Suddenly my eyes got stuck on a firewall and why it is used? So as the name suggests its a “WALL”. Which blocks the way of the network.  If I need to explain to you in layman language. A firewall is like the wall of your home which protects you from all sorts of situations. Imagine your home without walls. Anyone can pop in and pop out without even informing you. Like your home has the main door where you can limit the entry and exit of anyone. The same handling can be achieved by a firewall, which can limit entry&#x2F;exit to your internal network. </p>
+<p>Managing firewall can be a complicated task but fortunately, ubuntu has UFW. UFW stands for Uncomplicated Firewall. One can easily start using it in 5-10 minutes. A good practice of securing the server includes blocking all ports and allowing only limited ports.</p>
+<p>Below are the commands with their description</p>
+<ul>
+<li><p>Enable UFW<br><code>sudo ufw enable</code></p>
+</li>
+<li><p>Disable UFW<br><code>sudo ufw disable</code></p>
+</li>
+<li><p>Whenever you enable ufw. Make sure to allow ssh by typing the following command<br><code>sudo ufw allow ssh</code><br>Where ssh is the name of the service. If you wish to open the port, type the following command<br><code>sudo ufw allow 22</code></p>
+</li>
+</ul>
+<p>It’s not easy to remember all the port number or remember all service and on which port they are communicating. Fortunately here ufw comes to rescue. It provides allow&#x2F;deny to a service name. Which makes it easy to another level. UFW reads service from &#x2F;etc&#x2F;services </p>
+<ul>
+<li><p>To see get a list of services:<br><code>less /etc/services</code></p>
+</li>
+<li><p>To allow incoming TCP packets on port 1433<br><code>sudo ufw allow 1433/tcp</code></p>
+</li>
+<li><p>To allow incoming UDP packets on port 1433<br><code>sudo ufw allow 1433/udp</code></p>
+</li>
+<li><p>To allow incoming from specific ip<br>sudo ufw allow from<code>&lt;target&gt;</code>to<code>&lt;destination&gt;</code>port <code>&lt;port number&gt;</code><br><code>sudo ufw allow from 192.168.0.4 to any port 22</code></p>
+</li>
+<li><p>To allow IP address 192.168.0.4 access to port 22 using TCP<br>sudo ufw allow from <code>&lt;target&gt;</code> to <code>&lt;destination&gt;</code> port <code>&lt;port number&gt;</code> proto <code>&lt;protocol name&gt;</code><br><code>sudo ufw allow from 192.168.0.4 to any port 22 proto tcp</code></p>
+</li>
+<li><p>To deny rule<br>sudo ufw deny <code>&lt;port&gt;/&lt;optional: protocol&gt;</code><br><code>sudo ufw deny 4333</code></p>
+</li>
+<li><p>Delete existing rule<br>sudo ufw delete deny 80&#x2F;tcp</p>
+</li>
+<li><p>Numbered rule<br><code>sudo ufw status numbered</code><br>Now you can play with a number instead of port and service<br><code>sudo ufw delete 1</code></p>
+</li>
+<li><p>Disable PING<br>In order to disable ping (icmp) requests, you need to edit &#x2F;etc&#x2F;ufw&#x2F;before.rules and remove the following lines:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># ok icmp codes</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type source-quench -j ACCEPT</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>or change the “ACCEPT” to “DROP” </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># ok icmp codes</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type destination-unreachable -j DROP</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type source-quench -j DROP</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type time-exceeded -j DROP</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type parameter-problem -j DROP</span><br><span class="line"> -A ufw-before-input -p icmp --icmp-type echo-request -j DROP</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Playing-with-IP-range"><a href="#Playing-with-IP-range" class="headerlink" title="Playing with IP range"></a>Playing with IP range</h3><p>In case you need to allow IP address from 10.0.0.1 to 10.0.0.8<br>You can handle IP range in the criteria of 2<sup>Y</sup>. Hence the IP range set can be of 2, 4, 8, 16, 32 and so onn.<br>Next step is to find the value of <code>X</code>. As we already have decided the IP range. According to that, the value of Y would be 3. This is so because there are total 8 IP that are in between 10.0.0.1 to 10.0.0.8<br>Which gets back to equation as 2<sup>Y</sup> &#x3D; 8. Hence value of Y is 3.</p>
+<p>The following equation would be needed to find the subnet of the network<br><code>32 - X = Y</code><br>In the above equation, we need to find the value of X in order to get the correct value of subnet.<br>From the above, the value of X would be 29. Which would make the IP as 10.0.0.1&#x2F;29</p>
+<p>Let’s verify, 10.0.0.1&#x2F;29 would get the IP range of 32 - 29 &#x3D; 3<br>2<sup>3</sup> &#x3D; 8. Hence IP range would be from 10.0.0.1 to 10.0.0.8 </p>
+<p>Using UFW is awesome and easy too.</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Playing-with-IP-range"><span class="toc-text">Playing with IP range</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2019/08/03/debutsav/" class="prev">&larr; Prev post Debutsav (DELHI) 2019</a>
+  
+
+  
+
+  
+    <a href="/2018/10/13/nodejs-contribution/" class="next">Next post NodeJs Contribution &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

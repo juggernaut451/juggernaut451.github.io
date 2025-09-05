@@ -1,0 +1,467 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="Step 1:Check for SSH keys
+open CONSOLE and write :**$cd ~/.ssh
+$ls -al
+
+#list all your file in .ssh folder**
+
+Check the directory listing to see if you have files named either **`id_rsa.pub`** or `...">
+  
+  <title>SSH with git on kubuntu [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2014/06/25/basic-shell-commands/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        basic shell commands
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2014/06/11/installing-drupal/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Installing Drupal
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>SSH with git on kubuntu</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2014-06-18</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 3 min. read </span>
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/installation/">installation</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/ubuntu/">ubuntu</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/ssh/">ssh</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/kubuntu/">kubuntu</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/github/">github</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="Step-1-Check-for-SSH-keys"><a href="#Step-1-Check-for-SSH-keys" class="headerlink" title="Step 1:Check for SSH keys"></a>Step 1:Check for SSH keys</h1><ul>
+<li>open CONSOLE and write :<pre class="command-line">**<span class="command">$cd ~/.ssh
+$ls -al</li>
+</ul>
+<p>#list all your file in .ssh folder</span>**</pre></p>
+<ul>
+<li><pre class="command-line"><span class="command">Check the directory listing to see if you have files named either </span>**<span class="command">`id_rsa.pub`</span>**<span class="command"> or </span><span class="command">`id_dsa.pub`</span>**<span class="command">. </span>**</pre>
+</li>
+<li><pre class="command-line"><span class="command">If you don't have either of those files go to</span>**<span class="command"> <strong>step 2**. </span></strong><span class="command">Otherwise, you can skip to</span>**<span class="command"> <strong>step 3**.</span></strong></pre>
+<p>&nbsp;</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h1 id="Step-2-Generate-a-new-SSH-key"><a href="#Step-2-Generate-a-new-SSH-key" class="headerlink" title="Step 2: Generate a new SSH key"></a>Step 2: Generate a new SSH key</h1><ul>
+<li><p>To generate a new SSH key, copy and paste the text below, making sure to substitute in your email. The default settings are preferred, so when you’re asked to “enter a file in which to save the key,” just press enter to continue.</p>
+<pre class="command-line">**<span class="command">ssh-keygen -t rsa -C "_your_email@example.com_"</span>**</pre>
+</li>
+<li><pre class="command-line">Next, you'll be asked to enter a passphrase.</pre>
+<pre class="command-line">      enter a strong passphase and remember it</pre>
+</li>
+<li><p>Which should give you something like this:</p>
+<pre class="command-line">**<span class="output">Your identification has been saved in /c/Users/_you_/.ssh/id_rsa.</span>
+<span class="output"># Your public key has been saved in /c/Users/_you_/.ssh/id_rsa.pub.</span>
+<span class="output"># The key fingerprint is:</span>
+<span class="output"># _01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com_</span>**</pre>
+</li>
+<li><p>Then add your new key to the ssh-agent</p>
+<pre class="command-line">**<span class="command">$ssh-add ~/.ssh/id_rsa</span>**</pre>
+<p>&nbsp;</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h1 id="Step-3-Add-your-SSH-key-to-GitHub"><a href="#Step-3-Add-your-SSH-key-to-GitHub" class="headerlink" title="Step 3: Add your SSH key to GitHub"></a>Step 3: Add your SSH key to GitHub</h1><ul>
+<li>Run the following code to copy the key to your clipboard.<br>**                $clip &lt; ~&#x2F;.ssh&#x2F;id_rsa.pub**</li>
+</ul>
+<h1 id="Copies-the-contents-of-the-id-rsa-pub-file-to-your-clipboard"><a href="#Copies-the-contents-of-the-id-rsa-pub-file-to-your-clipboard" class="headerlink" title="Copies the contents of the id_rsa.pub file to your clipboard"></a>Copies the contents of the id_rsa.pub file to your clipboard</h1><ul>
+<li>Alternatively, using your favorite text editor, you can open the ~&#x2F;.ssh&#x2F;id_rsa.pub file and copy the contents of the file manuallyNow that you have the key copied, it’s time to add it into GitHub:</li>
+</ul>
+<ol>
+<li>In the user bar in the top-right corner of any page, click<a href="https://github.com/settings/admin"> <strong>Account settings</strong></a>.</li>
+<li>Click <a href="https://github.com/settings/ssh"><strong>SSH Keys</strong></a> in the left sidebar.</li>
+<li>Click <strong>Add SSH key</strong></li>
+<li>In the Title field, add a descriptive label for the new key. For example, if you’re using a home PC, you might call this key “HOME PC”.</li>
+<li>Paste your key into the “Key” field.</li>
+<li>Click <strong>Add key</strong>.</li>
+</ol>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="-1"><a href="#-1" class="headerlink" title=""></a></h1><h1 id="Step-4-Testing"><a href="#Step-4-Testing" class="headerlink" title="Step 4: Testing"></a>Step 4: Testing</h1><ul>
+<li><p>open console and type :</p>
+<pre class="command-line">**<span class="command">$ssh -T git@github.com</span>**</pre>
+<p><strong>#Attempts to ssh to github</strong></p>
+</li>
+<li><p>You may see this warning:</p>
+<pre class="command-line">**<span class="output">The authenticity of host 'github.com (207.97.227.239)' can't be established.</span>
+<span class="output"># RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span>
+<span class="output"># Are you sure you want to continue connecting (yes/no)?</span>**</pre>
+</li>
+<li><p>type** YES**</p>
+</li>
+<li><pre class="command-line"><span class="output">Hi _username_! You've successfully authenticated, but GitHub does not</span>
+<span class="output"># provide shell access.</span></pre>
+</li>
+<li><h2 id="It-means-you-have-accessed-your-github-account"><a href="#It-means-you-have-accessed-your-github-account" class="headerlink" title="It means you have accessed your github account"></a>It means you have accessed your github account</h2></li>
+</ul>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2>
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-1-Check-for-SSH-keys"><span class="toc-text">Step 1:Check for SSH keys</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-2-Generate-a-new-SSH-key"><span class="toc-text">Step 2: Generate a new SSH key</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-3-Add-your-SSH-key-to-GitHub"><span class="toc-text">Step 3: Add your SSH key to GitHub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Copies-the-contents-of-the-id-rsa-pub-file-to-your-clipboard"><span class="toc-text">Copies the contents of the id_rsa.pub file to your clipboard</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-1"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-4-Testing"><span class="toc-text">Step 4: Testing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#It-means-you-have-accessed-your-github-account"><span class="toc-text">It means you have accessed your github account</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-text"></span></a></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2014/06/25/basic-shell-commands/" class="prev">&larr; Prev post basic shell commands</a>
+  
+
+  
+
+  
+    <a href="/2014/06/11/installing-drupal/" class="next">Next post Installing Drupal &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

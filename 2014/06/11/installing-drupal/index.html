@@ -1,0 +1,421 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="installing DRUPAL from scratch in UBUNTU
+following task have to be executed to install drupal
+&nbsp;
+**1. Apache2 Server Setup
+2. Installing MySQL and PHP5
+3. Installing Drupal &amp; Configuring Dr...">
+  
+  <title>Installing Drupal [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2014/06/18/ssh-with-git-on-kubuntu/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        SSH with git on kubuntu
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2014/05/06/first-interview/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        First interview
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Installing Drupal</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2014-06-11</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 2 min. read </span>
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/work/">work</a>
+      
+      </span>
+      
+      
+    </p>
+    
+    <p>installing DRUPAL from scratch in UBUNTU</p>
+<p>following task have to be executed to install drupal</p>
+<p>&nbsp;</p>
+<p>**1. Apache2 Server Setup</p>
+<p>2. Installing MySQL and PHP5</p>
+<p>3. Installing Drupal &amp; Configuring Drupal</p>
+<p>4. Clean URLs Configuration in Apache2 for Drupal</p>
+<p>5. Other Tweaks**</p>
+<p>&nbsp;</p>
+<p>1. Run the following command to install apache on your machine</p>
+<p><strong><code>sudo apt-get install apache2 libapache2-mod-php5</code></strong></p>
+<p><code>** sudo apt-get install mysql-client mysql-server** </code></p>
+<p>enter your root password and remember it.we will need it furthur</p>
+<p><strong><code>sudo /etc/init.d/apache2 restart</code></strong></p>
+<p>&nbsp;</p>
+<p>2. Install PHPMyAdmin. After this, make changes in the confinguration file to support PHPMyAdmin. You can skip this step if you prefer to use MySQL GUI based administration.</p>
+<p><strong><code>sudo apt-get install phpmyadmin</code></strong></p>
+<p><strong><code>sudo gedit /etc/apache2/httpd.conf </code></strong></p>
+<p>At the bottom add the following</p>
+<p>&#96;** # Enable PHPMyAdmin**</p>
+<p>** Include &#x2F;etc&#x2F;phpmyadmin&#x2F;apache.conf**</p>
+<p>&#96;</p>
+<p>**<code>sudo /etc/init.d/apache2 restart</code> **</p>
+<p>3. Enable usedir module in apache2 to allow URLs of the following format <a href="http://localhost/~username">http://localhost/~username</a>. Also enable mod_rewrite to allow for Drupal Clean URLs</p>
+<p>**&#96; cd &#x2F;etc&#x2F;apache2&#x2F;mods-enabled</p>
+<p>sudo ln -s ..&#x2F;mods-available&#x2F;userdir.load</p>
+<p>sudo ln -s ..&#x2F;mods-available&#x2F;userdir.conf</p>
+<p>sudo ln -s ..&#x2F;mods-available&#x2F;rewrite.load</p>
+<p>sudo &#x2F;etc&#x2F;init.d&#x2F;apache2 reload&#96;**</p>
+<p>&nbsp;</p>
+<p><strong>Install Drupal</strong></p>
+<p>1. Download the latest drupal version from <a href="http://drupal.org/">http://drupal.org</a> and extract it under</p>
+<p><strong>&#x2F;var&#x2F;www&#x2F;drupal</strong></p>
+<p>&nbsp;</p>
+<p>2. In browser open</p>
+<p><strong>localhost&#x2F;drupal&#x2F;</strong></p>
+<p>&nbsp;</p>
+<p>3. Follow the step</p>
+<p>fill database name - <strong>drupal</strong></p>
+<p>username-<strong>root</strong></p>
+<p>password- <strong>that you entered previously while installing sql</strong></p>
+<p>&nbsp;</p>
+<p>4. Enter the specific detail.</p>
+<p>CONGRATS your drupal has been installed</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2014/06/18/ssh-with-git-on-kubuntu/" class="prev">&larr; Prev post SSH with git on kubuntu</a>
+  
+
+  
+
+  
+    <a href="/2014/05/06/first-interview/" class="next">Next post First interview &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

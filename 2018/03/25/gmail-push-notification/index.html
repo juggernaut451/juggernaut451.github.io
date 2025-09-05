@@ -1,0 +1,380 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="I was given a task to implement gmail api of emails. So there are two approaches that can be followed. One is pushed notification while other is pull. 
+In this blog, we will discuss more of push me...">
+  
+  <title>Gmail push notification on mail [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2018/04/26/sails-eslint/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Eslint with Sails
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2018/02/05/scp/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Secure copy
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Gmail push notification on mail</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2018-03-26</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 5 min. read </span>
+      
+      
+    </p>
+    
+    <p>I was given a task to implement <a href="https://developers.google.com/gmail/api/">gmail api</a> of emails. So there are two approaches that can be followed. One is pushed notification while other is pull. </p>
+<p>In this blog, we will discuss more of push method. Though if you want to implement this on mobile device, apps or browser.<br>One should go for pull or poll based approach. In this approach, there are two options available i.e full synchronization and partial synchronization.</p>
+<p>In full synchronization, when the app connects to Gmail it should do a full synchronization. In this operation, your application should retrieve and store as many of the most recent message or thread as are necessary for your purpose. </p>
+<p>In partial synchronization, you can perform a partial sync using the <code>history.list</code> method to return all history records newer than the startHistoryId you specify in your request. History records provide message IDs and type of change for each message, such as message added, deleted, or labels modified since the time of the startHistoryId. You can obtain and store the historyId of the most recent message from a full or partial sync to provide as a startHistoryId for future partial synchronization operations.</p>
+<p>Limitation for this type of method is that history records are typically available for at least one week and often longer. However, the time period for which records are available may be significantly less and records may sometimes be unavailable in rare cases. If the startHistoryId supplied by your client is outside the available range of history records, the API returns an HTTP 404 error response. In this case, your client must perform a full sync as described in the previous section.</p>
+<p>As for me, push notification will full fill my requirement. In this, we need to setup cloud pub&#x2F;sub. It brings the scalability, flexibility, and reliability of enterprise message-oriented middleware to the cloud. By providing many-to-many, asynchronous messaging that decouples senders and receivers, it allows for secure and highly available communication between independently written applications. </p>
+<p>A publisher application creates and sends messages to a topic. Subscriber applications create a subscription to a topic to receive messages from it. The subscriber can receive the message in two type i.e either pull or push. In pull delivery, your subscriber application initiates requests to the Cloud Pub&#x2F;Sub server to retrieve messages. While in push delivery, Cloud Pub&#x2F;Sub initiates requests to your subscriber application to deliver messages.</p>
+<p>I would be going to push type of subscription. For this one should have HTTPS certificate on the server or domain. Then you have to register it to <a href="https://www.google.com/webmasters/tools/home">webmaster</a>. Now let’s start with the practical</p>
+<h3 id="Create-Topic"><a href="#Create-Topic" class="headerlink" title="Create Topic"></a>Create Topic</h3><p>Using your Cloud Pub&#x2F;Sub client, create the <a href="https://cloud.google.com/pubsub/docs/publisher#create">topic</a> that the Gmail API should send notifications to. The topic name can be any name you choose under your project (i.e. matching projects&#x2F;myproject&#x2F;topics&#x2F;*, where myproject is the Project ID listed for your project in the Google Developers Console).</p>
+<h3 id="Create-Subscription"><a href="#Create-Subscription" class="headerlink" title="Create Subscription"></a>Create Subscription</h3><p>Follow the Cloud Pub&#x2F;Sub Subscriber Guide to set up a <a href="https://cloud.google.com/pubsub/docs/subscriber">subscription</a> to the topic that you created. Configure the subscription type to be either a webhook push (i.e. HTTP POST callback) or pull (i.e. initiated by your app). This is how your application will receive notifications for updates. One can manage topic and subscription better from <a href="https://console.cloud.google.com/cloudpubsub/topicList">pub sub console</a>. </p>
+<h3 id="Grant-publish-rights-on-your-topic"><a href="#Grant-publish-rights-on-your-topic" class="headerlink" title="Grant publish rights on your topic"></a>Grant publish rights on your topic</h3><p>Cloud Pub&#x2F;Sub requires that you grant Gmail privileges to publish notifications to your topic.<br>To do this, you need to grant publish privileges to serviceAccount:<a href="mailto:&#x67;&#x6d;&#97;&#105;&#108;&#x2d;&#x61;&#112;&#x69;&#45;&#112;&#117;&#x73;&#x68;&#x40;&#115;&#x79;&#115;&#x74;&#101;&#109;&#x2e;&#x67;&#x73;&#x65;&#x72;&#x76;&#x69;&#x63;&#101;&#x61;&#x63;&#99;&#x6f;&#117;&#x6e;&#116;&#46;&#99;&#x6f;&#109;">&#x67;&#x6d;&#97;&#105;&#108;&#x2d;&#x61;&#112;&#x69;&#45;&#112;&#117;&#x73;&#x68;&#x40;&#115;&#x79;&#115;&#x74;&#101;&#109;&#x2e;&#x67;&#x73;&#x65;&#x72;&#x76;&#x69;&#x63;&#101;&#x61;&#x63;&#99;&#x6f;&#117;&#x6e;&#116;&#46;&#99;&#x6f;&#109;</a>. You can do this by <a href="https://console.cloud.google.com/cloudpubsub/topicList">console</a></p>
+<h3 id="Getting-Gmail-mailbox-updates"><a href="#Getting-Gmail-mailbox-updates" class="headerlink" title="Getting Gmail mailbox updates"></a>Getting Gmail mailbox updates</h3><p>Once the initial Cloud Pub&#x2F;Sub setup is finished, configure Gmail accounts to send notifications for mailbox updates.</p>
+<h3 id="Watch-request"><a href="#Watch-request" class="headerlink" title="Watch request"></a>Watch request</h3><p>To configure Gmail accounts to send notifications to your Cloud Pub&#x2F;Sub topic, simply use your Gmail API client to call watch() on the Gmail user mailbox similar to any other Gmail API call. To do so, provide the topic name created above and any other options in your watch() request, such as labels to filter on. </p>
+<h3 id="Things-to-remember"><a href="#Things-to-remember" class="headerlink" title="Things to remember"></a>Things to remember</h3><ul>
+<li>Renew your watch in every 7 days</li>
+<li>Once you receive a push notification to your endpoints, remember it to respond it with status 200. Else it will repeatedly send push to the endpoint.</li>
+<li>Always save your startHistoryId in your database and send it to the API while retrieving the mail as the starting point.</li>
+</ul>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-Topic"><span class="toc-text">Create Topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-Subscription"><span class="toc-text">Create Subscription</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grant-publish-rights-on-your-topic"><span class="toc-text">Grant publish rights on your topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getting-Gmail-mailbox-updates"><span class="toc-text">Getting Gmail mailbox updates</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Watch-request"><span class="toc-text">Watch request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Things-to-remember"><span class="toc-text">Things to remember</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2018/04/26/sails-eslint/" class="prev">&larr; Prev post Eslint with Sails</a>
+  
+
+  
+
+  
+    <a href="/2018/02/05/scp/" class="next">Next post Secure copy &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

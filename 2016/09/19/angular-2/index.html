@@ -1,0 +1,429 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="On September 15, Angular 2 was officially released with version 2.0.0. There are many changes that have been introduced to angular 2 to increase the performance which angular 1 lacked. Some of the ...">
+  
+  <title>Angular 2 [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2016/10/25/hooked/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Hooked
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2016/07/30/first-pip-package/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        My first pip package
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Angular 2</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2016-09-19</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 3 min. read </span>
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/experience/">experience</a>
+      
+        
+          /
+        
+        
+        <a href="/categories/experience/javascript/">javascript</a>
+      
+        
+          /
+        
+        
+        <a href="/categories/experience/javascript/work/">work</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/angular/">angular</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/angular2/">angular2</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/javascript/">javascript</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/jslover/">jslover</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/work/">work</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>On September 15, Angular 2 was officially released with version 2.0.0. There are many changes that have been introduced to angular 2 to increase the performance which angular 1 lacked. Some of the comparison of the data are:</p>
+<p>[caption id&#x3D;”” align&#x3D;”alignnone” width&#x3D;”605”]<img src="https://cdn.auth0.com/blog/newdombenchs/MajorGC.svg"> <a href="https://auth0.com/blog/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/[/caption]">https://auth0.com/blog/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/[/caption]</a></p>
+<p>The above graphs depicts the garbage collection of different framework. As you can see angular 1 tops the list where angular 2 is quite low in comparison to it. Which shows the performance increment.</p>
+<p>[caption id&#x3D;”” align&#x3D;”alignnone” width&#x3D;”605”]<img src="https://cdn.auth0.com/blog/newdombenchs/Javascript.svg"> <a href="https://auth0.com/blog/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/[/caption]">https://auth0.com/blog/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/[/caption]</a></p>
+<p>Also another graph shows the total amount of time spent by the browser executing JavaScript code. Ember 1 and 2 are the slowest here. Again the difference between Angular 1 and 2 is abysmal. While virtualdom and react are performing out of the way.</p>
+<p>Angular 2 is entirely based on Typescript and meets the ECMAScript 6 specification. Some of the major change that have been introduced in Angular 2 are:</p>
+<h3 id="Component-Based"><a href="#Component-Based" class="headerlink" title="Component-Based"></a>Component-Based</h3><p>Angular 2 is entirely component based. Controllers and $scope are no longer used. They have been replaced by components and directives. Components are directives with a template.Angular 1.x has 2 ways to bootstrap angular. One using <code>ng-app</code> attribute and other via code. In Angular 2, say goodbye to <code>ng-app</code>. The only way to bootstrap angular is via code.</p>
+<h3 id="Dependency-Injection"><a href="#Dependency-Injection" class="headerlink" title="Dependency Injection"></a>Dependency Injection</h3><p>The improved dependency injection model in Angular2 there are more opportunities for component &#x2F; object-based work. The dependency injection consists of 3 parts. The Injector, which contains the APIs to inject the dependencies and make dependency injection available. Bindings make it possible for dependencies to be named. Finally the actual dependencies of the object are generated so they can be injected</p>
+<p>&nbsp;</p>
+<p>In Angular 2, <strong>local variables</strong> are defined using hash(#) prefix. Angular 2 uses** camelCase syntax** for built-in directives. For example, <code>ng-class</code> is now <code>ngClass</code> and <code>ng-model</code> is now <code>ngModel</code>.One of the major change in Angular 2 is, that it directly uses the valid HTML DOM element properties and events. Due to this, many of the available built-in directives in Angular 1.x are now no longer required. Like, <code>ng-href</code>, <code>ng-src</code>, <code>ng-show</code> and <code>ng-hide</code>. Angular 2 uses <code>href</code>, <code>src</code> and <code>hidden</code> properties to get the same output. And same goes with event based directives like <code>ng-click</code> and <code>ng-blur</code>. In Angular 1.x, <code>ng-model</code> is used for <strong>two way data binding</strong>, but with Angular 2 it is replaced with <code>[(ngModel)]</code>.</p>
+<p>&nbsp;</p>
+<p>These were some of the things i tracked over Angular 1.x and Angular 2. I am still exploring angular 2. Will update in the next blog. Thanks to <a href="http://www.meetup.com/jslovers/">JSlover</a> and specially to <a href="https://twitter.com/jaswantsandhu"><span class="full">Jaswant Sandhu</span></a>. Next update comming soon :)</p>
+<p>&nbsp;</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Component-Based"><span class="toc-text">Component-Based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependency-Injection"><span class="toc-text">Dependency Injection</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2016/10/25/hooked/" class="prev">&larr; Prev post Hooked</a>
+  
+
+  
+
+  
+    <a href="/2016/07/30/first-pip-package/" class="next">Next post My first pip package &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

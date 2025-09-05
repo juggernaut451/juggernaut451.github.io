@@ -1,0 +1,426 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="A day before the Valentine Your Python event in the morning. My mentor (Anuvrat Parashar) asked me that how we are handling the system in the workshop. I told him that we have opted for devpi(PyPI ...">
+  
+  <title>Vagrant -> Packer -> Virtual Box image [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2016/03/24/android-token-management/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Android Token Management
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2016/02/24/samsung-galaxy-tab-3-not-starting-or-charging/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Samsung Galaxy Tab 3 Not Starting or Charging
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Vagrant -> Packer -> Virtual Box image</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2016-02-25</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 2 min. read </span>
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/experience/">experience</a>
+      
+        
+          /
+        
+        
+        <a href="/categories/experience/installation/">installation</a>
+      
+        
+          /
+        
+        
+        <a href="/categories/experience/installation/work/">work</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/packer/">packer</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/vagrant/">vagrant</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/ValentineYourPython/">ValentineYourPython</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/virtual-box/">virtual box</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>A day before the <a href="https://www.facebook.com/events/469362036603096/">Valentine Your Python</a> event in the morning. My mentor (<span class="fwn fcg"><span class="fwb fcg" data-ft="{&quot;tn&quot;:&quot;;&quot;}"><a href="https://www.facebook.com/anuvrat.parashar?fref=nf">Anuvrat Parashar</a>) asked me that how we are handling the system in the workshop. I told him that we have opted for <a href="http://doc.devpi.net/latest/">devpi(</a></span></span><a href="http://doc.devpi.net/latest/">PyPI server and packaging&#x2F;testing&#x2F;release tool<span class="fwn fcg"><span class="fwb fcg" data-ft="{&quot;tn&quot;:&quot;;&quot;}">).</span></span></a><span class="fwn fcg"><span class="fwb fcg" data-ft="{&quot;tn&quot;:&quot;;&quot;}"> He suggested to go for vagrant image. Those who don’t know, Vagrant is computer <a href="https://en.wikipedia.org/wiki/Software" title="Software">software</a> that creates and configures <a href="https://en.wikipedia.org/wiki/Virtualization" title="Virtualization">virtual</a> <a href="https://en.wikipedia.org/wiki/Development_environment_%28software_development_process%29" title="Development environment (software development process)">development environments</a>. It can be seen as a higher-level <a href="https://en.wikipedia.org/wiki/Wrapper_library" title="Wrapper library">wrapper</a> around virtualization software such as <a href="https://en.wikipedia.org/wiki/VirtualBox" title="VirtualBox">VirtualBox</a>, <a href="https://en.wikipedia.org/wiki/VMware" title="VMware">VMware</a>, <a href="https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine" title="Kernel-based Virtual Machine">KVM</a> and <a href="https://en.wikipedia.org/wiki/Linux_Containers" title="Linux Containers">Linux Containers</a> (LXC), and around <a href="https://en.wikipedia.org/wiki/Configuration_management" title="Configuration management">configuration management</a> software such as <a href="https://en.wikipedia.org/wiki/Ansible_%28software%29" title="Ansible (software)">Ansible</a>, <a href="https://en.wikipedia.org/wiki/Chef_%28software%29" title="Chef (software)">Chef</a>, <a href="https://en.wikipedia.org/wiki/Salt_%28software%29" title="Salt (software)">Salt</a>, and <a href="https://en.wikipedia.org/wiki/Puppet_%28software%29" title="Puppet (software)">Puppet</a>.</span></span></p>
+<blockquote>
+<p>$ vagrant init hashicorp&#x2F;precise64</p>
+<pre><code>$ vagrant up
+</code></pre>
+<p>After running the above two commands, you will have a fully running virtual machine in <a href="https://www.virtualbox.org/">VirtualBox</a> running Ubuntu 12.04 LTS 64-bit. You can SSH into this machine with<br><code>vagrant ssh</code><br>and then install all the essential library and packages that are required. As soon as you done with it. Make package of it with<br><code>vagrant package</code><br>Now take the image to the system you want to install on. Go to terminal and type<br>&#96;vagrant box add ADDRESS –name NAME</p>
+<p>&#96;<br>where ADDRESS in the file path of the file and NAME is the name of the box.</p>
+</blockquote>
+<p>&nbsp;</p>
+<p>The problem with this image was that it was CLI. Workshop was aimed for beginner, so have to find a alternative so that it would be easy for the beginner to understand, who are not command line friendly. Then my another mentor (<a href="https://github.com/akshayaurora">Akshay Arora</a>) suggested me <a href="https://www.packer.io/">Packer</a>. He also gave the <a href="https://github.com/kivy/buildozer/tree/master/buildozer/tools/packer">link</a> which explained how packer is used. The problem i faced there was lack of time. Only 4hrs were left for the event. So, I finally decided to go for virtual box.</p>
+<p>Step it required were :</p>
+<ul>
+<li>Install your favorite distribution</li>
+<li>Install all the dependency and packages</li>
+<li>Then go to File -&gt; Export Application<br>Your .vbox file is all set to be installed in any other system.</li>
+</ul>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2016/03/24/android-token-management/" class="prev">&larr; Prev post Android Token Management</a>
+  
+
+  
+
+  
+    <a href="/2016/02/24/samsung-galaxy-tab-3-not-starting-or-charging/" class="next">Next post Samsung Galaxy Tab 3 Not Starting or Charging &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

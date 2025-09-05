@@ -1,0 +1,471 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="cat - Send a file to the screen in one go. Useful for piping to other programscat file1                       # list file1 to screencat file1 file2 file3 &gt; outfile # add files together into outf...">
+  
+  <title>basic shell commands [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2014/07/08/youtube-firefox-mtnl-problem-resolved/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        youtube-firefox MTNL problem resolved
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2014/06/18/ssh-with-git-on-kubuntu/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        SSH with git on kubuntu
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>basic shell commands</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2014-06-25</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 8 min. read </span>
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/work/">work</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/shell/">shell</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/terminal/">terminal</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/ubuntu/">ubuntu</a>
+      
+      </span>
+      
+    </p>
+    
+    <ul>
+<li><p>cat - Send a file to the screen in one go. Useful for piping to other programs<br>cat file1                       # list file1 to screen<br>cat file1 file2 file3 &gt; outfile # add files together into outfile<br>cat *.txt &gt; outfile             # add all .txt files together<br>cat file1 file2 | grep fred     # pipe files</p>
+</li>
+<li><p>cc - Compile a C program<br>cc test1.c                     # compile test1.c to a.out<br>cc -O2 -o test2.prog test2.c   # compile test2.c to test2.prog</p>
+</li>
+<li><p>cd - Change current directory<br>cd                     # go to home directory<br>cd ~&#x2F;papers            # go to &#x2F;home&#x2F;user&#x2F;papers<br>cd ~fred               # go to &#x2F;home&#x2F;fred<br>cd dir                 # go to directory (relative)<br>cd &#x2F;dir1&#x2F;dir2&#x2F;dir3…  # go to directory (absolute)<br>cd -                   # go to last directory you were in</p>
+</li>
+<li><p>cp - Copy file(s)<br>cp file1 file2                      # copy file1 to file2<br>cp file1 directory                  # copy file1 into directory<br>cp file1 file2 file3 … directory  # copy files into directory<br>cp -R dir1 dir2&#x2F;  # copy dir1 into dir2 including subdirectries<br>cp -pR dir1 dir2&#x2F; # copy directory, preserving permissions</p>
+</li>
+<li><p>date - Shows current date<br>&nbsp;</p>
+</li>
+<li><p>emacs - The ubiquitous text editor<br>emacs foo.txt             # open file in emacs</p>
+</li>
+<li><p>file - Tells you what sort of file it is<br>&gt; file temp_70.jpg<br>temp_70.jpg: JPEG image data, JFIF standard 1.01,<br>resolution (DPI), 72 x 72</p>
+</li>
+<li><p>firefox - Start Mozilla Firefox<br>&nbsp;</p>
+</li>
+<li><p>gedit - Gnome text editor<br>&nbsp;</p>
+</li>
+<li><p>grep - Look for text in files. List out lines containing text (with filename if more than one file examined).<br>grep “hi there” file1 file2 … # look for ‘hi there’ in files<br>grep -i “hi there” filename     # ignore capitals in search<br>cat filename | grep “hi there”  # use pipe<br>grep -v “foo” filename          # list lines that do not include foo</p>
+</li>
+<li><p>gtar - GNU version of the tar utility (also called tar on Linux). Store directories and files together into a single archive file. Use the normal tar program to backup files to a tape. See info tar for documentation.<br>gtar cf out.tar dir1    # put contents of directory into out.tar<br>gtar czf out.tar.gz dir1 # write compressed tar, out.tar.gz<br>gtar tf in.tar          # list contents of in.tar<br>gtar tzf in.tar.gz      # list contents of compressed in.tar.gz<br>gtar xf in.tar          # extract contents of in.tar here<br>gtar xzf in.tar.gz      # extract compressed in.tar.gz<br>gtar xf in.tar file.txt … # extract file.txt from in.tar</p>
+</li>
+<li><p>gzip &#x2F; gunzip - GNU Compress files into a smaller space, or decompress .Z or .gz files.<br>gzip file.fits          # compresses file.fits into file.fits.gz<br>gunzip file.fits.gz     # recovers original file.fits<br>gzip *.dat              # compresses all .dat files into .dat.gz<br>gunzip *.dat.gz         # decompresses all .dat.gz files into .dat<br>program | gzip &gt; out.gz # compresses program output into out.gz<br>program | gunzip &gt; out  # decompresses compressed program output</p>
+</li>
+<li><p>info - A documentation system designed to replace man for GNU programs (e.g. gtar, gcc). Use cursor keys and return to go to sections. Press b to go back to previous section. A little hard to use.<br>info gtar               # documentation for gtar</p>
+</li>
+<li><p>kill - Kill, pause or continue a process. Can also be used for killing daemons.<br>&gt; ps -u jss<br>…<br>666  pts&#x2F;1        06:06:06  badprocess<br>&gt; kill 666        # this sends a &#96;&#96;nice’’ kill to the</p>
+</li>
+</ul>
+<h1 id="process-If-that-doesn’t-work-do"><a href="#process-If-that-doesn’t-work-do" class="headerlink" title="process. If that doesn’t work do"></a>process. If that doesn’t work do</h1><p>&gt; kill -KILL 666   # (or equivalently)<br>&gt; kill -9 666     # which should really kill it!</p>
+<p>&gt; kill -STOP 667  # pause (stop) process<br>&gt; kill -CONT 667  # unpause process</p>
+<ul>
+<li><p>latex - Convert a tex file to dvi<br>&nbsp;</p>
+</li>
+<li><p>logout - Closes the current shell. Also try &#96;&#96;exit’’.<br>&nbsp;</p>
+</li>
+<li><p>lp - Sends files to a printer<br>lp file.ps  # sends postscript file to the default printer<br>lp -dlp2 file.ps           # sends file to the printer lp2<br>lp -c file.ps    # copies file first, so you can delete it<br>lpstat -p lp2         # get status and list of jobs on lp2<br>cancel lp2-258                  # cancel print job lp2-258</p>
+</li>
+</ul>
+<p>lpr -Plp2 file.ps                    # send file.ps to lp2<br>lpq -Plp2                        # get list of jobs on lp2<br>lprm -Plp2 1234                   # delete job 1234 on lp2</p>
+<ul>
+<li><p>ls - Show lists of files or information on the files<br>ls file     # does the file exist?<br>ls -l file  # show information about the file<br>ls *.txt    # show all files ending in .txt<br>ls -lt      # show information about all files in date order<br>ls -lrt     # above reversed in order<br>ls -a       # show all files including hidden files<br>ls dir      # show contents of directory<br>ls -d dir   # does the directory exist?<br>ls -p       # adds meaning characters to ends of filenames<br>ls -R       # show files also in subdirectories of directory<br>ls -1       # show one file per line</p>
+</li>
+<li><p>man - Get instructions for a particular Unix command or a bit of Unix. Use space to get next page and q to exit.<br>man man      # get help on man<br>man grep     # get help on grep<br>man -s1 sort # show documentation on sort in section 1</p>
+</li>
+<li><p>more - Show a file one screen at a time<br>more file                # show file one screen at a time<br>grep ‘frog’ file | more  # Do it to output of other command</p>
+</li>
+<li><p>mv - Move file(s) or rename a file<br>mv file1 file2                     # rename file1 to file2<br>mv dir1 dir2                       # rename directory dir1 to dir2<br>mv file1 file2 file3 … directory # move files into directory</p>
+</li>
+<li><p>nano - very simple text editor. Warning - this program can introduce extra line breaks in your file if the screen is too narrow!<br>&nbsp;</p>
+</li>
+<li><p>nice - Start a process in a nice way. Nice levels run from -19 (high priority) to 19 (low priority). Jobs with a higher priority get more CPU time. See renice for more detail. You should probably be using the grid-engine to run long jobs.<br>nice +19 myjob1   # run at lowest priority<br>nice +8 myjob2    # run at lowish priority</p>
+</li>
+<li><p>openoffice.org - a free office suite available for Linux&#x2F;Unix, Windows and Mac OS X.<br>&nbsp;</p>
+</li>
+<li><p>passwd - change your password<br>&nbsp;</p>
+</li>
+<li><p>pine - A commonly used text-based mail client. It is now called alpine. Allows you to send and receive emails. Configuration options allow it to become quite powerful. Other alternatives for mail are mozilla mail and mutt, however I suggest you stick to alpine or thunderbird.<br>&nbsp;</p>
+</li>
+<li><p>printenv - Print an environment variable in tcsh<br>setenv MYVARIABLE Fred<br>printenv MYVARIABLE<br>printenv # print all variables</p>
+</li>
+<li><p>ps - List processes on system<br>&gt; ps -u jss          # list jss’s processes<br>934 pts&#x2F;0    00:00:00 bash</p>
+</li>
+</ul>
+<p>PID   output   CPU time name<br>&gt; ps -f      # list processes started here in full format<br>&gt; ps -AF     # list all processes in extra full format<br>&gt; ps -A -l            # list all processes in long format<br>&gt; ps -A | grep tcsh   # list all tcsh processes</p>
+<ul>
+<li><p>pwd - Show current working directory<br>&gt; pwd<br>&#x2F;home&#x2F;ashu&#x2F;writing&#x2F;lecture</p>
+</li>
+<li><p>quota - Shows you how much disk space you have left<br>&gt; quota -v<br>…</p>
+</li>
+<li><p>rm - Delete (remove) files<br>rm file1     # delete a file (use -i to ask whether sure)<br>rm -r dir1   # delete a directory and everything in it (CARE!)<br>rm -rf dir1  # like above, but don’t ask if we have a -i alias</p>
+</li>
+</ul>
+<p>rmdir - Delete a directory if it is empty (rm -r dirname is useful if it is not empty)</p>
+<p>rmdir dirname</p>
+<ul>
+<li>top - Interactively show you the <code>top&#39;&#39; processes on a system - the ones consuming the most computing (CPU) time. Press the </code>q’’ key in top to exit. Press the <code>k&#39;&#39; key to kill a particular process. Press </code>r’’ to renice a process.<br>&nbsp;</li>
+</ul>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#process-If-that-doesn%E2%80%99t-work-do"><span class="toc-text">process. If that doesn’t work do</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2014/07/08/youtube-firefox-mtnl-problem-resolved/" class="prev">&larr; Prev post youtube-firefox MTNL problem resolved</a>
+  
+
+  
+
+  
+    <a href="/2014/06/18/ssh-with-git-on-kubuntu/" class="next">Next post SSH with git on kubuntu &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

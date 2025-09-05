@@ -1,0 +1,403 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="How I Set Up GitLab Runner on My Raspberry Pi 4 (And You Can Too!)I was setting up GitLab Runner on my DigitalOcean (DO) instance when it suddenly hit me—I have a Raspberry Pi 4 just sitting there!...">
+  
+  <title>How I Set Up GitLab Runner on My Raspberry Pi 4 (And You Can Too) [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2025/02/22/The-Ultimate-Docker-Duo-How-Portainer-and-Watchtower-Revolutionized-My-Workflow/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        The Ultimate Docker Duo: How Portainer and Watchtower Revolutionized My Workflow
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2024/12/10/Conquering-a-New-Programming-Language-A-Practical-Guide/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Conquering a New Programming Language: A Practical Guide
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>How I Set Up GitLab Runner on My Raspberry Pi 4 (And You Can Too)</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2025-01-07</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 3 min. read </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/gitlab-rpi/">gitlab, rpi</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="How-I-Set-Up-GitLab-Runner-on-My-Raspberry-Pi-4-And-You-Can-Too"><a href="#How-I-Set-Up-GitLab-Runner-on-My-Raspberry-Pi-4-And-You-Can-Too" class="headerlink" title="How I Set Up GitLab Runner on My Raspberry Pi 4 (And You Can Too!)"></a>How I Set Up GitLab Runner on My Raspberry Pi 4 (And You Can Too!)</h1><p>I was setting up GitLab Runner on my DigitalOcean (DO) instance when it suddenly hit me—I have a Raspberry Pi 4 just sitting there! Why not put it to good use?  </p>
+<p>If you’re like me and love tinkering with tech, you’ll be happy to know that setting up GitLab Runner on an RPi is totally doable. There are three major ways to install GitLab Runner:</p>
+<ul>
+<li><strong>Shell</strong></li>
+<li><strong>Docker</strong></li>
+<li><strong>Kubernetes</strong></li>
+</ul>
+<p>At first, I went with Docker since RPi supports it now, but I ran into a snag—there was no ARM64 image for GitLab Runner. So, I had to pivot and go with the shell installation instead. Let me walk you through the process!</p>
+<hr>
+<h2 id="Step-1-Install-Git"><a href="#Step-1-Install-Git" class="headerlink" title="Step 1: Install Git"></a>Step 1: Install Git</h2><p>First things first, let’s install Git. It’s a simple one-liner:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-2-Install-Docker"><a href="#Step-2-Install-Docker" class="headerlink" title="Step 2: Install Docker"></a>Step 2: Install Docker</h2><p>Docker is great for managing containers, so let’s get it installed on our RPi:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download script and start installation</span></span><br><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line"><span class="built_in">sudo</span> sh get-docker.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add the current user to the Docker group</span></span><br><span class="line"><span class="built_in">sudo</span> groupadd docker </span><br><span class="line"></span><br><span class="line"><span class="comment"># This command might return an error if the group already exists</span></span><br><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$&#123;USER&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># List all groups the current user belongs to</span></span><br><span class="line"><span class="built_in">groups</span> <span class="variable">$&#123;USER&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-3-Install-GitLab-Runner"><a href="#Step-3-Install-GitLab-Runner" class="headerlink" title="Step 3: Install GitLab Runner"></a>Step 3: Install GitLab Runner</h2><p>Now, let’s install GitLab Runner itself.</p>
+<p>First, check the current OS version:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br></pre></td></tr></table></figure>
+
+<p>Next, set up the repository and install GitLab Runner:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L <span class="string">&quot;https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh&quot;</span> | <span class="built_in">sudo</span> os=debian dist=bullseye bash</span><br><span class="line"><span class="built_in">sudo</span> apt install gitlab-runner</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step-4-Register-the-Runner"><a href="#Step-4-Register-the-Runner" class="headerlink" title="Step 4: Register the Runner"></a>Step 4: Register the Runner</h2><p>Now comes the fun part—registering the runner! Get the token from your GitLab group runner and run:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> gitlab-runner register</span><br></pre></td></tr></table></figure>
+
+<p>When prompted, enter <strong>docker</strong> as the executor.</p>
+<h2 id="Step-5-Configure-the-Runner-for-Docker-in-Docker-DinD"><a href="#Step-5-Configure-the-Runner-for-Docker-in-Docker-DinD" class="headerlink" title="Step 5: Configure the Runner for Docker-in-Docker (DinD)"></a>Step 5: Configure the Runner for Docker-in-Docker (DinD)</h2><p>If you want your runner to support Docker-in-Docker (DinD), add this configuration:</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[runners.docker]</span></span><br><span class="line">  <span class="attr">tls_verify</span> = <span class="literal">false</span></span><br><span class="line">  <span class="attr">image</span> = <span class="string">&quot;juggernaut451/docker-dind:latest&quot;</span></span><br><span class="line">  <span class="attr">privileged</span> = <span class="literal">true</span></span><br><span class="line">  <span class="attr">disable_entrypoint_overwrite</span> = <span class="literal">false</span></span><br><span class="line">  <span class="attr">oom_kill_disable</span> = <span class="literal">false</span></span><br><span class="line">  <span class="attr">disable_cache</span> = <span class="literal">false</span></span><br><span class="line">  <span class="attr">volumes</span> = [<span class="string">&quot;/cache&quot;</span>,<span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span>]</span><br><span class="line">  <span class="attr">shm_size</span> = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🎉-GitLab-Runner-is-Now-Ready-🎉"><a href="#🎉-GitLab-Runner-is-Now-Ready-🎉" class="headerlink" title="🎉 GitLab Runner is Now Ready! 🎉"></a>🎉 GitLab Runner is Now Ready! 🎉</h3><p>And that’s it! You now have a fully functional GitLab Runner on your Raspberry Pi. Whether you’re automating builds, running CI&#x2F;CD pipelines, or just experimenting, this setup will serve you well. </p>
+<p>Have any questions or ran into an issue? Drop a comment below, and let’s troubleshoot together! 🚀</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-I-Set-Up-GitLab-Runner-on-My-Raspberry-Pi-4-And-You-Can-Too"><span class="toc-text">How I Set Up GitLab Runner on My Raspberry Pi 4 (And You Can Too!)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-1-Install-Git"><span class="toc-text">Step 1: Install Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-2-Install-Docker"><span class="toc-text">Step 2: Install Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-3-Install-GitLab-Runner"><span class="toc-text">Step 3: Install GitLab Runner</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-4-Register-the-Runner"><span class="toc-text">Step 4: Register the Runner</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-5-Configure-the-Runner-for-Docker-in-Docker-DinD"><span class="toc-text">Step 5: Configure the Runner for Docker-in-Docker (DinD)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%89-GitLab-Runner-is-Now-Ready-%F0%9F%8E%89"><span class="toc-text">🎉 GitLab Runner is Now Ready! 🎉</span></a></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2025/02/22/The-Ultimate-Docker-Duo-How-Portainer-and-Watchtower-Revolutionized-My-Workflow/" class="prev">&larr; Prev post The Ultimate Docker Duo: How Portainer and Watchtower Revolutionized My Workflow</a>
+  
+
+  
+
+  
+    <a href="/2024/12/10/Conquering-a-New-Programming-Language-A-Practical-Guide/" class="next">Next post Conquering a New Programming Language: A Practical Guide &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

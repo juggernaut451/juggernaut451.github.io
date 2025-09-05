@@ -1,0 +1,394 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="Uncovering Magisk: An Introduction to Android InternalsA couple of years ago, I went about rooting my Android device. I didn’t really know what I was doing—only that I wanted to have better control...">
+  
+  <title>Discovering Magisk: A Gateway to Understanding Android Internals [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2025/06/23/android-bootloader/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        android bootloader
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2025/02/22/The-Ultimate-Docker-Duo-How-Portainer-and-Watchtower-Revolutionized-My-Workflow/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        The Ultimate Docker Duo: How Portainer and Watchtower Revolutionized My Workflow
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Discovering Magisk: A Gateway to Understanding Android Internals</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2025-05-05</span>
+      
+        <span id = "post-title-updated">Updated at 2025-09-05</span>
+      
+      <span> - 3 min. read </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/Magisk-Android-Rooting-Systemless-Root-Zygisk-Android-Mods-Rooted-Android-Magisk-Modules-Android-Customization-How-Android-Works-Android-Internals-Boot-Image-SafetyNet-Tech-Blog-Android-Tutorials-Mobile-Hacking/">Magisk, Android Rooting, Systemless Root, Zygisk, Android Mods, Rooted Android, Magisk Modules, Android Customization, How Android Works, Android Internals, Boot Image, SafetyNet, Tech Blog, Android Tutorials, Mobile Hacking</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="Uncovering-Magisk-An-Introduction-to-Android-Internals"><a href="#Uncovering-Magisk-An-Introduction-to-Android-Internals" class="headerlink" title="Uncovering Magisk: An Introduction to Android Internals"></a>Uncovering Magisk: An Introduction to Android Internals</h1><p>A couple of years ago, I went about rooting my Android device. I didn’t really know what I was doing—only that I wanted to have better control over my phone. I wanted to delete bloatware, block system-level ads, and perhaps even tweak the UI. Halfway through that process, I discovered <strong>Magisk</strong>. At the time, I had no idea how much this tool would school me in the ways of how Android works.</p>
+<h2 id="What-is-Magisk"><a href="#What-is-Magisk" class="headerlink" title="What is Magisk?"></a>What is Magisk?</h2><p>Magisk is a <strong>systemless root solution</strong> for Android. In contrast to the older technique that alters the system partition, Magisk does it by altering the <strong>boot image</strong>. This is the smart trick which allows your phone to stay “untouched” in terms of system integrity checks. Apps dependent on <strong>SafetyNet</strong>—such as Google Pay, bank apps, or Netflix—will be able to function without any knowledge that the device is rooted.</p>
+<h2 id="My-First-Experience-with-Magisk"><a href="#My-First-Experience-with-Magisk" class="headerlink" title="My First Experience with Magisk"></a>My First Experience with Magisk</h2><p>I was doing a tutorial to flash a custom recovery (TWRP) when I noticed suggestions of Magisk over SuperSU. I was intrigued and flashed Magisk instead. Then I went on to install <strong>Magisk Manager</strong> (now part of Magisk itself), and that’s where things really started.”.</p>
+<p>I came across <strong>Magisk Modules</strong>, enabling me to load new features to my phone without modifying the system files. AdAway, custom DNS settings, and even sound enhancement tools were made available—and easily removable. The modularity and safety net were a dream come true.</p>
+<h2 id="How-Magisk-Works"><a href="#How-Magisk-Works" class="headerlink" title="How Magisk Works"></a>How Magisk Works</h2><p>Magisk works by patching the <strong>boot image</strong>, giving root access early before Android launches. Here is a simplified step-by-step how it works:</p>
+<p><img src="https://files.oaiusercontent.com/file-svENJmrqsAzZl0bThQ5hf7fz?se=2025-05-06T11:57:49Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&sig=GqC8xEwhU5WxGduGoUsL2/hms0nJRAg+QmAGMuN6TTI=" alt="How Magisk Works"></p>
+<ol>
+<li><strong>Android Boot Process</strong> starts.</li>
+<li>The <strong>boot image</strong>, which is now altered by Magisk, is loaded.</li>
+<li><strong>Magisk</strong> obtains systemless root access.</li>
+<li><strong>Magisk Modules</strong> are installed.</li>
+<li><strong>Zygisk</strong> (Magisk’s new process injection mechanism) starts.</li>
+<li><strong>Selected apps</strong> are fooled into believing that the phone is not rooted.</li>
+</ol>
+<p>With the help of <strong>Zygisk</strong> and <strong>denylist configurations</strong>, you can conceal root from privileged apps while still having complete control over the rest of the system. This degree of fine-grained control taught me about Android’s <strong>init system</strong>, how apps are loaded during boot, and how permissions are applied.</p>
+<h2 id="What-I-Learned"><a href="#What-I-Learned" class="headerlink" title="What I Learned"></a>What I Learned</h2><p>Magisk turned a basic rooting endeavor into an in-depth exploration of Android’s architecture. I learned:</p>
+<ul>
+<li>How the <strong>bootloader, recovery, and system partitions</strong> communicate.</li>
+<li>What occurs during the <strong>init</strong> boot phase of Android.</li>
+<li>Debugging logs and system service management.</li>
+<li>Danger and benefit of altering low-level system behavior.</li>
+</ul>
+<h2 id="Final-Thoughts"><a href="#Final-Thoughts" class="headerlink" title="Final Thoughts"></a>Final Thoughts</h2><p>Rooting with Magisk not only granted me more control—it educated me on how Android really works. It’s not a tool—it’s a teaching platform for those interested in learning about Android internals. If you want to venture beyond the surface of your device, Magisk is a fantastic place to start.</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Uncovering-Magisk-An-Introduction-to-Android-Internals"><span class="toc-text">Uncovering Magisk: An Introduction to Android Internals</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-Magisk"><span class="toc-text">What is Magisk?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#My-First-Experience-with-Magisk"><span class="toc-text">My First Experience with Magisk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-Magisk-Works"><span class="toc-text">How Magisk Works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-I-Learned"><span class="toc-text">What I Learned</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Thoughts"><span class="toc-text">Final Thoughts</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2025/06/23/android-bootloader/" class="prev">&larr; Prev post android bootloader</a>
+  
+
+  
+
+  
+    <a href="/2025/02/22/The-Ultimate-Docker-Duo-How-Portainer-and-Watchtower-Revolutionized-My-Workflow/" class="next">Next post The Ultimate Docker Duo: How Portainer and Watchtower Revolutionized My Workflow &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
