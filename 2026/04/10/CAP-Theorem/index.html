@@ -1,0 +1,505 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="CAP Theorem Explained Like a Real System BreaksIf you’ve spent any time around distributed systems, you’ve probably heard people throw around the CAP Theorem like it’s some kind of rulebook. In rea...">
+  
+  <title>CAP Theorem Explained Like a Real System Breaks [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2026/06/09/How-AI-programming-feels-after-15-years-in-programming/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        How AI programming feels after 15 years in programming
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2026/01/25/Life-Lessons-from-10-Years-as-a-Software-Engineer/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Life Lessons from 10+ Years as a Software Engineer
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>CAP Theorem Explained Like a Real System Breaks</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2026-04-11</span>
+      
+        <span id = "post-title-updated">Updated at 2026-10-16</span>
+      
+      <span> - 6 min. read </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/CAP-Theorem/">CAP Theorem</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/System-Design/">System Design</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Distributed-Systems/">Distributed Systems</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Backend-Engineering/">Backend Engineering</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="CAP-Theorem-Explained-Like-a-Real-System-Breaks"><a href="#CAP-Theorem-Explained-Like-a-Real-System-Breaks" class="headerlink" title="CAP Theorem Explained Like a Real System Breaks"></a>CAP Theorem Explained Like a Real System Breaks</h1><p>If you’ve spent any time around distributed systems, you’ve probably heard people throw around the CAP Theorem like it’s some kind of rulebook. In reality, it’s less of a rule and more of a reminder: you don’t get everything for free.</p>
+<p>Over the years, I’ve stopped thinking about CAP as a theoretical concept and started treating it as a practical decision-making tool—something that quietly shapes almost every system we build.</p>
+<hr>
+<h2 id="First-Let’s-Keep-It-Simple"><a href="#First-Let’s-Keep-It-Simple" class="headerlink" title="First, Let’s Keep It Simple"></a>First, Let’s Keep It Simple</h2><p>CAP stands for three things:</p>
+<ul>
+<li>Consistency — Everyone sees the same data at the same time  </li>
+<li>Availability — The system always responds  </li>
+<li>Partition Tolerance — The system keeps working even when parts of it can’t talk to each other</li>
+</ul>
+<p>Now here’s the catch:<br>You can’t fully guarantee all three at the same time in a distributed system.</p>
+<p>And in the real world, network failures are not a “maybe” — they are guaranteed. So Partition Tolerance is not something you choose; it’s something you live with.</p>
+<p>Which leaves us with the real trade-off:</p>
+<blockquote>
+<p>Do you want perfect data, or do you want the system to always respond?</p>
+</blockquote>
+<hr>
+<h2 id="Where-It-Gets-Real"><a href="#Where-It-Gets-Real" class="headerlink" title="Where It Gets Real"></a>Where It Gets Real</h2><p>Let me put this in a way that actually shows up in production.</p>
+<p>Imagine your system is split across two data centers. Suddenly, the network between them goes down.</p>
+<p>Now what?</p>
+<p>You have two choices:</p>
+<h3 id="Option-1-Be-Strict-Consistency-First"><a href="#Option-1-Be-Strict-Consistency-First" class="headerlink" title="Option 1: Be Strict (Consistency First)"></a>Option 1: Be Strict (Consistency First)</h3><p>You stop serving some requests because you can’t guarantee the data is correct.</p>
+<p>From a system perspective, this is clean.<br>From a user perspective, this can be painful.</p>
+<p>But in some systems, this is absolutely the right call.</p>
+<p>Think:</p>
+<ul>
+<li>Banking transactions  </li>
+<li>Stock trading systems  </li>
+<li>Inventory management</li>
+</ul>
+<p>You’d rather show an error than show the wrong balance.</p>
+<hr>
+<h3 id="Option-2-Keep-Going-Availability-First"><a href="#Option-2-Keep-Going-Availability-First" class="headerlink" title="Option 2: Keep Going (Availability First)"></a>Option 2: Keep Going (Availability First)</h3><p>You continue serving requests, even if some of the data might be slightly outdated.</p>
+<p>Users stay happy because the system “works.”<br>But behind the scenes, things might temporarily drift.</p>
+<p>This works well for:</p>
+<ul>
+<li>Social media feeds  </li>
+<li>Product listings  </li>
+<li>Analytics dashboards</li>
+</ul>
+<p>If your Instagram feed shows a post 5 seconds late, nobody complains.</p>
+<hr>
+<h2 id="The-Big-Misunderstanding"><a href="#The-Big-Misunderstanding" class="headerlink" title="The Big Misunderstanding"></a>The Big Misunderstanding</h2><p>A lot of people think CAP is about choosing “any two.”</p>
+<p>It’s not.</p>
+<p>In practice, you are always choosing between consistency and availability when a partition happens.</p>
+<p>Everything works fine… until it doesn’t.<br>CAP is about what your system does when things break.</p>
+<p>And things will break.</p>
+<hr>
+<h2 id="How-I-Approach-It-in-Real-Systems"><a href="#How-I-Approach-It-in-Real-Systems" class="headerlink" title="How I Approach It in Real Systems"></a>How I Approach It in Real Systems</h2><p>I rarely think in terms of “this system is CP” or “this system is AP.”<br>That’s too rigid.</p>
+<p>Instead, I break things down at a use-case level.</p>
+<h3 id="Same-system-different-choices"><a href="#Same-system-different-choices" class="headerlink" title="Same system, different choices"></a>Same system, different choices</h3><p>For example, in an e-commerce platform:</p>
+<ul>
+<li>Payments → must be consistent  </li>
+<li>Cart → can tolerate some inconsistency  </li>
+<li>Product catalog → highly available, eventually consistent</li>
+</ul>
+<p>Same product. Different CAP decisions.</p>
+<p>This is where architecture becomes interesting.</p>
+<hr>
+<h2 id="Eventual-Consistency-Isn’t-a-Compromise-—-It’s-a-Tool"><a href="#Eventual-Consistency-Isn’t-a-Compromise-—-It’s-a-Tool" class="headerlink" title="Eventual Consistency Isn’t a Compromise — It’s a Tool"></a>Eventual Consistency Isn’t a Compromise — It’s a Tool</h2><p>At some point, you’ll realize that strict consistency everywhere just doesn’t scale well.</p>
+<p>That’s where eventual consistency comes in.</p>
+<p>But let’s be clear—this is not “we’ll fix it later” engineering.</p>
+<p>If you go this route, you need to design for it properly:</p>
+<ul>
+<li>Operations should be idempotent  </li>
+<li>You need conflict resolution strategies  </li>
+<li>Data should carry versions or timestamps</li>
+</ul>
+<p>Otherwise, you’re just pushing problems into the future.</p>
+<hr>
+<h2 id="Microservices-Make-CAP-More-Visible"><a href="#Microservices-Make-CAP-More-Visible" class="headerlink" title="Microservices Make CAP More Visible"></a>Microservices Make CAP More Visible</h2><p>Once you move to microservices, CAP stops being abstract.</p>
+<p>Every service:</p>
+<ul>
+<li>Has its own database  </li>
+<li>Communicates over the network  </li>
+<li>Can fail independently</li>
+</ul>
+<p>Now your system is full of tiny distributed systems.</p>
+<p>This is why patterns like:</p>
+<ul>
+<li>Sagas  </li>
+<li>Event-driven communication  </li>
+<li>Async processing</li>
+</ul>
+<p>…start showing up everywhere.</p>
+<p>Not because they’re trendy—but because they help you survive the trade-offs CAP forces on you.</p>
+<hr>
+<h2 id="The-Questions-I-Always-Ask"><a href="#The-Questions-I-Always-Ask" class="headerlink" title="The Questions I Always Ask"></a>The Questions I Always Ask</h2><p>When designing a system, I don’t start with CAP.<br>But I always end up there.</p>
+<p>Here are the questions that guide me:</p>
+<ul>
+<li>What’s worse: wrong data or no data?  </li>
+<li>How long can inconsistency live before it becomes a problem?  </li>
+<li>What will the user actually notice?  </li>
+<li>Can we recover from conflicts later?</li>
+</ul>
+<p>These questions matter more than any textbook definition.</p>
+<hr>
+<h2 id="Where-People-Usually-Go-Wrong"><a href="#Where-People-Usually-Go-Wrong" class="headerlink" title="Where People Usually Go Wrong"></a>Where People Usually Go Wrong</h2><p>I’ve seen a few patterns over the years:</p>
+<ul>
+<li><p>Trying to make everything strongly consistent<br>→ System becomes slow and fragile  </p>
+</li>
+<li><p>Going “eventual” without a plan<br>→ Data turns messy, bugs become nightmares  </p>
+</li>
+<li><p>Assuming cloud &#x3D; no failures<br>→ This one always comes back to bite  </p>
+</li>
+<li><p>Ignoring business context<br>→ The biggest mistake of all</p>
+</li>
+</ul>
+<p>Because CAP is not just a technical decision.</p>
+<p>It’s a business trade-off.</p>
+<hr>
+<h2 id="Final-Thought"><a href="#Final-Thought" class="headerlink" title="Final Thought"></a>Final Thought</h2><p>CAP Theorem isn’t something you “solve.”</p>
+<p>It’s something you respect.</p>
+<p>Every distributed system you build is making a choice—whether you realize it or not.</p>
+<p>As an architect, your job is to make that choice deliberately, not accidentally.</p>
+<p>And once you start seeing systems through that lens, a lot of design decisions suddenly become much clearer.</p>
+<hr>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CAP-Theorem-Explained-Like-a-Real-System-Breaks"><span class="toc-text">CAP Theorem Explained Like a Real System Breaks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#First-Let%E2%80%99s-Keep-It-Simple"><span class="toc-text">First, Let’s Keep It Simple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Where-It-Gets-Real"><span class="toc-text">Where It Gets Real</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Option-1-Be-Strict-Consistency-First"><span class="toc-text">Option 1: Be Strict (Consistency First)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Option-2-Keep-Going-Availability-First"><span class="toc-text">Option 2: Keep Going (Availability First)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Big-Misunderstanding"><span class="toc-text">The Big Misunderstanding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-I-Approach-It-in-Real-Systems"><span class="toc-text">How I Approach It in Real Systems</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Same-system-different-choices"><span class="toc-text">Same system, different choices</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Eventual-Consistency-Isn%E2%80%99t-a-Compromise-%E2%80%94-It%E2%80%99s-a-Tool"><span class="toc-text">Eventual Consistency Isn’t a Compromise — It’s a Tool</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Microservices-Make-CAP-More-Visible"><span class="toc-text">Microservices Make CAP More Visible</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Questions-I-Always-Ask"><span class="toc-text">The Questions I Always Ask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Where-People-Usually-Go-Wrong"><span class="toc-text">Where People Usually Go Wrong</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Thought"><span class="toc-text">Final Thought</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2026/06/09/How-AI-programming-feels-after-15-years-in-programming/" class="prev">&larr; Prev post How AI programming feels after 15 years in programming</a>
+  
+
+  
+
+  
+    <a href="/2026/01/25/Life-Lessons-from-10-Years-as-a-Software-Engineer/" class="next">Next post Life Lessons from 10+ Years as a Software Engineer &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

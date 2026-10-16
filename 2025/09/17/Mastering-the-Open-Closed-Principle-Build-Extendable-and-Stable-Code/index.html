@@ -1,0 +1,465 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="Understanding the Open-Closed Principle (OCP) in Software DesignThe Open-Closed Principle (OCP) is one of the five SOLID principles of object-oriented design that guide developers to write code tha...">
+  
+  <title>Mastering the Open-Closed Principle: Build Extendable and Stable Code [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2025/09/18/Mastering-the-Strategy-Design-Pattern-Write-Flexible-and-Reusable-Code/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Mastering the Strategy Design Pattern: Write Flexible and Reusable Code
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2025/07/09/The-2-3-8-30-Team-Building-Formula-A-British-Military-Strategy-Every-Business-Leader-Should-Use/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        The 2-3-8-30 Team Building Formula: A British Military Strategy Every Business Leader Should Use
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Mastering the Open-Closed Principle: Build Extendable and Stable Code</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2025-09-17</span>
+      
+        <span id = "post-title-updated">Updated at 2026-10-16</span>
+      
+      <span> - 4 min. read </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/open-closed-principle/">open-closed-principle</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/solid/">solid</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/software-design/">software-design</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/clean-code/">clean-code</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/design-patterns/">design-patterns</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="Understanding-the-Open-Closed-Principle-OCP-in-Software-Design"><a href="#Understanding-the-Open-Closed-Principle-OCP-in-Software-Design" class="headerlink" title="Understanding the Open-Closed Principle (OCP) in Software Design"></a>Understanding the Open-Closed Principle (OCP) in Software Design</h1><p>The Open-Closed Principle (OCP) is one of the five SOLID principles of object-oriented design that guide developers to write code that is maintainable, extensible, and robust. Coined by Bertrand Meyer in 1988 and popularized by Robert C. Martin (Uncle Bob), the principle states:</p>
+<blockquote>
+<p><strong>“Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.”</strong></p>
+</blockquote>
+<p>This means you should be able to add new functionality to existing code without changing its existing source code.</p>
+<h2 id="Why-Is-the-Open-Closed-Principle-Important"><a href="#Why-Is-the-Open-Closed-Principle-Important" class="headerlink" title="Why Is the Open-Closed Principle Important?"></a>Why Is the Open-Closed Principle Important?</h2><p>When software systems grow, requirements change and new features are added. Without OCP, developers often modify existing code, which can introduce bugs and break tested functionality. The OCP promotes:</p>
+<ul>
+<li><strong>Extensibility:</strong> Add new behaviors via new code, not by changing existing.</li>
+<li><strong>Robustness:</strong> Existing code remains untouched, reducing bugs.</li>
+<li><strong>Maintainability:</strong> Easier to understand and evolve code.</li>
+<li><strong>Scalability:</strong> Systems grow naturally without fragile dependencies.</li>
+</ul>
+<h2 id="Implementing-OCP-with-Abstraction-and-Polymorphism"><a href="#Implementing-OCP-with-Abstraction-and-Polymorphism" class="headerlink" title="Implementing OCP with Abstraction and Polymorphism"></a>Implementing OCP with Abstraction and Polymorphism</h2><p>You typically implement OCP by coding against abstractions rather than concrete implementations. This means using interfaces or base classes defining contracts and extending these with new classes:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Notification System with Polymorphism in JavaScript</span><br><span class="line"></span><br><span class="line">## 1. Abstract Class</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">class Notification &#123;</span><br><span class="line">  send(message) &#123;</span><br><span class="line">    throw new Error(&#x27;Method &quot;send&quot; should be implemented&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Defines a <strong>common contract</strong> (<code>send</code>) for all notification types.  </li>
+<li>Any subclass <strong>must</strong> implement the <code>send</code> method.</li>
+</ul>
+<hr>
+<h2 id="2-Concrete-Classes"><a href="#2-Concrete-Classes" class="headerlink" title="2. Concrete Classes"></a>2. Concrete Classes</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">EmailNotification</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Notification</span> &#123;</span><br><span class="line">  <span class="title function_">send</span>(<span class="params">message</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Sending email notification: <span class="subst">$&#123;message&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SMSNotification</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Notification</span> &#123;</span><br><span class="line">  <span class="title function_">send</span>(<span class="params">message</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Sending SMS notification: <span class="subst">$&#123;message&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>EmailNotification</code> and <code>SMSNotification</code> both implement the <code>send</code> method.  </li>
+<li>New notification types can be added without modifying existing ones (<strong>Open&#x2F;Closed Principle</strong>).</li>
+</ul>
+<hr>
+<h2 id="3-Processor-Context-Class"><a href="#3-Processor-Context-Class" class="headerlink" title="3. Processor (Context Class)"></a>3. Processor (Context Class)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NotificationProcessor</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">notification</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">notification</span> = notification;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">notify</span>(<span class="params">message</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">notification</span>.<span class="title function_">send</span>(message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Works with <strong>any notification type</strong> through <strong>polymorphism</strong>.  </li>
+<li><code>NotificationProcessor</code> doesn’t care if the notification is Email, SMS, Push, etc.  </li>
+<li>Delegates the responsibility of sending to the chosen strategy.</li>
+</ul>
+<hr>
+<h2 id="4-Usage-Example"><a href="#4-Usage-Example" class="headerlink" title="4. Usage Example"></a>4. Usage Example</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> emailProcessor = <span class="keyword">new</span> <span class="title class_">NotificationProcessor</span>(<span class="keyword">new</span> <span class="title class_">EmailNotification</span>());</span><br><span class="line"><span class="keyword">const</span> smsProcessor = <span class="keyword">new</span> <span class="title class_">NotificationProcessor</span>(<span class="keyword">new</span> <span class="title class_">SMSNotification</span>());</span><br><span class="line"></span><br><span class="line">emailProcessor.<span class="title function_">notify</span>(<span class="string">&quot;Hello via Email!&quot;</span>);</span><br><span class="line">smsProcessor.<span class="title function_">notify</span>(<span class="string">&quot;Hello via SMS!&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-Output"><a href="#✅-Output" class="headerlink" title="✅ Output"></a>✅ Output</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Sending email notification: Hello via Email!</span><br><span class="line">Sending SMS notification: Hello via SMS!</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔹-Benefits"><a href="#🔹-Benefits" class="headerlink" title="🔹 Benefits"></a>🔹 Benefits</h2><ul>
+<li><strong>Extensible</strong> → Add new types (Push, WhatsApp, Slack, etc.) without changing existing code.  </li>
+<li><strong>Polymorphic</strong> → Processor code stays the same regardless of notification type.  </li>
+<li><strong>Clean separation</strong> → Processor only handles <em>when</em> to notify, while notification classes handle <em>how</em>.</li>
+</ul>
+<h3 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h3><ul>
+<li><code>Notification</code> is a base class with an abstract <code>send</code> method.</li>
+<li><code>EmailNotification</code> and <code>SMSNotification</code> extend the base, implementing <code>send</code>.</li>
+<li>When a new notification type is needed, create a new class without changing existing ones.</li>
+<li><code>NotificationProcessor</code> works with any <code>Notification</code> object, making the system open to extension but closed to modification.</li>
+</ul>
+<h2 id="Benefits-of-Applying-OCP"><a href="#Benefits-of-Applying-OCP" class="headerlink" title="Benefits of Applying OCP"></a>Benefits of Applying OCP</h2><ul>
+<li><strong>Reduces regression bugs</strong> by not modifying existing tested code.</li>
+<li><strong>Encourages loosely coupled systems</strong> via abstractions.</li>
+<li><strong>Simplifies testing</strong> since components are isolated.</li>
+<li><strong>Supports agile development</strong> by allowing incremental feature additions.</li>
+</ul>
+<h2 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h2><ul>
+<li>Designing good abstractions upfront requires experience.</li>
+<li>Risk of over-engineering if abstractions are added unnecessarily.</li>
+<li>May introduce minor performance overhead due to indirection.</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>The Open-Closed Principle helps create software that is easier to maintain and extend over time. Writing code that is open for extension but closed for modification ensures stability and flexibility, leading to higher quality codebases and more efficient development workflows.</p>
+<hr>
+<p><em>References:</em></p>
+<ul>
+<li>Bertrand Meyer, <em>Object-Oriented Software Construction</em> (1988)  </li>
+<li>Robert C. Martin, <em>Clean Architecture</em> (2017)  </li>
+<li>SOLID Principles Overview, FreeCodeCamp, GeeksforGeeks</li>
+</ul>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Understanding-the-Open-Closed-Principle-OCP-in-Software-Design"><span class="toc-text">Understanding the Open-Closed Principle (OCP) in Software Design</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Is-the-Open-Closed-Principle-Important"><span class="toc-text">Why Is the Open-Closed Principle Important?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementing-OCP-with-Abstraction-and-Polymorphism"><span class="toc-text">Implementing OCP with Abstraction and Polymorphism</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Concrete-Classes"><span class="toc-text">2. Concrete Classes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Processor-Context-Class"><span class="toc-text">3. Processor (Context Class)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Usage-Example"><span class="toc-text">4. Usage Example</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-Output"><span class="toc-text">✅ Output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%B9-Benefits"><span class="toc-text">🔹 Benefits</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Explanation"><span class="toc-text">Explanation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Benefits-of-Applying-OCP"><span class="toc-text">Benefits of Applying OCP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges"><span class="toc-text">Challenges</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2025/09/18/Mastering-the-Strategy-Design-Pattern-Write-Flexible-and-Reusable-Code/" class="prev">&larr; Prev post Mastering the Strategy Design Pattern: Write Flexible and Reusable Code</a>
+  
+
+  
+
+  
+    <a href="/2025/07/09/The-2-3-8-30-Team-Building-Formula-A-British-Military-Strategy-Every-Business-Leader-Should-Use/" class="next">Next post The 2-3-8-30 Team Building Formula: A British Military Strategy Every Business Leader Should Use &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
