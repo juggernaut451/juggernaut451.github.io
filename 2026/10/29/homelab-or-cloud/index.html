@@ -1,0 +1,438 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="I get asked this a lot. Usually by someone at work, usually half-joking: “why are you running servers in your house when AWS exists?”
+Fair. I use the cloud every day at my job and I have no beef wi...">
+  
+  <title>Homelab or cloud? My take after running a cluster at home [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2026/10/14/The-Art-of-the-Trade-off-Why-Bare-Metal-Kubernetes-is-a-Beautiful-Maddening-Beast/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        The Art of the Trade-off: Why Bare Metal Kubernetes is a Beautiful, Maddening Beast
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Homelab or cloud? My take after running a cluster at home</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2026-10-29</span>
+      
+        <span id = "post-title-updated">Updated at 2026-10-29</span>
+      
+      <span> - 5 min. read </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/Raspberry-Pi/">Raspberry Pi</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Kubernetes/">Kubernetes</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Homelab/">Homelab</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/k3s/">k3s</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Cloud/">Cloud</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>I get asked this a lot. Usually by someone at work, usually half-joking: “why are you running servers in your house when AWS exists?”</p>
+<p>Fair. I use the cloud every day at my job and I have no beef with it. But I also have a little k3s cluster at home. An old PC called pc1, plus a few Raspberry Pis (rpi4, rpi7, rpi8). There was an rpi0 too until recently. More on that later, because pulling it out ended up teaching me more than adding it ever did.</p>
+<p>This isn’t going to be a balanced comparison. I’m biased. I’ll try to be fair about it anyway.</p>
+<h2 id="What-the-cloud-gets-right"><a href="#What-the-cloud-gets-right" class="headerlink" title="What the cloud gets right"></a>What the cloud gets right</h2><p>A lot, honestly.</p>
+<p>You want 100 cores for two hours? Click, done, and then give them back. You don’t think about cooling or power or a disk dying at 2am, because that’s somebody else’s job. If what you care about is the app and not the box it runs on, that’s a pretty great deal.</p>
+<p>Where it goes wrong is mostly money. Everyone has a story about the instance they forgot to shut down. And egress! Putting data in is cheap. Taking it back out costs you, and nobody reads that part of the pricing page until it’s too late.</p>
+<p>Lock-in is the slower problem. You don’t decide to get locked in. You just use one managed queue. Then a few Lambdas. Then some IAM setup that only makes sense on that one provider. A year later, moving is a project nobody wants.</p>
+<p>The thing that actually bugs me, though, is what you learn. The cloud teaches you the cloud. Which buttons, which services, which flags. Useful stuff! But you can go years without knowing what’s really happening under it.</p>
+<h2 id="Why-I-keep-the-homelab"><a href="#Why-I-keep-the-homelab" class="headerlink" title="Why I keep the homelab"></a>Why I keep the homelab</h2><p>At home nobody’s got my back. I’m the network guy, the storage guy, and the one on call when something falls over.</p>
+<p>That’s kind of the point though.</p>
+<p>Setting up Longhorn across my nodes made me actually understand replicas: where they land, what happens when a node vanishes. Moving Postgres and Mattermost onto the cluster made me take backups seriously, since there’s no magic restore button someone else keeps working. Everything goes through GitOps, so every dumb mistake I’ve made is right there in the git log. Humbling. Also really useful.</p>
+<p>Then the rpi0. It just couldn’t keep up with what I was asking it to do, and it was causing more trouble than it was worth, so it had to go. Sounds simple. It wasn’t. Draining a node when you’ve got stateful stuff running on it is where you find out which of your “eh, it’ll just reschedule” assumptions were true. A few weren’t. In the cloud I’d have terminated the instance and moved on, and I’d have learned nothing.</p>
+<p>It’s not all great. You pay for hardware before you’ve run anything. Something always needs updating. SD cards die. Power blips happen at the worst time. And it lives in your house, so it’s taking up space and putting out heat and some noise. A few Pis on a shelf are easy to live with. A full rack of old enterprise gear is not, and I’d think hard before going down that road.</p>
+<p>But once it’s bought, the bill is mostly electricity. No surprises at the end of the month. I like that more than I expected to.</p>
+<h2 id="Quick-comparison"><a href="#Quick-comparison" class="headerlink" title="Quick comparison"></a>Quick comparison</h2><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Cloud</th>
+<th align="left">Homelab</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Upfront cost</td>
+<td align="left">~nothing</td>
+<td align="left">Hardware first</td>
+</tr>
+<tr>
+<td align="left">Scaling</td>
+<td align="left">Instant</td>
+<td align="left">Whenever the parts show up</td>
+</tr>
+<tr>
+<td align="left">Control</td>
+<td align="left">What the provider lets you do</td>
+<td align="left">All of it</td>
+</tr>
+<tr>
+<td align="left">Monthly cost</td>
+<td align="left">Depends on usage, can spike</td>
+<td align="left">Power + internet</td>
+</tr>
+<tr>
+<td align="left">You learn</td>
+<td align="left">Provider services and tooling</td>
+<td align="left">Networking, storage, Linux, the whole thing</td>
+</tr>
+</tbody></table>
+<h2 id="So-which-one"><a href="#So-which-one" class="headerlink" title="So, which one?"></a>So, which one?</h2><p>Depends what you want out of it.</p>
+<p>Working on something for your job, with a deadline? Cloud. Need it reachable from anywhere, or need to spin up and tear down a lot? Cloud. Don’t want to spend money on hardware yet? Also cloud.</p>
+<p>Want to understand how this stuff actually works, and you’re OK with things breaking? Homelab. Especially if you’ll stick with it for a while.</p>
+<p>Me, I use both, and I think most people who are into this end up there. Things that need to be public and reliable can go in the cloud. The stuff I’m learning on, or just want to own myself (cluster, chat, database), stays at home.</p>
+<p>If you’re on the fence: start small. One Pi or a cheap used mini PC. Don’t buy a rack. Pick one thing you want to run, get it running, and then fix it when it breaks. It will break. That’s honestly the fun part.</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-the-cloud-gets-right"><span class="toc-text">What the cloud gets right</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-I-keep-the-homelab"><span class="toc-text">Why I keep the homelab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-comparison"><span class="toc-text">Quick comparison</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#So-which-one"><span class="toc-text">So, which one?</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2026/10/14/The-Art-of-the-Trade-off-Why-Bare-Metal-Kubernetes-is-a-Beautiful-Maddening-Beast/" class="next">Next post The Art of the Trade-off: Why Bare Metal Kubernetes is a Beautiful, Maddening Beast &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

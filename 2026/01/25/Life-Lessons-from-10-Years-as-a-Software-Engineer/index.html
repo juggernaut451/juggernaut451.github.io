@@ -1,0 +1,536 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="Ten years ago, I thought being a good software engineer meant writing clever code.Turns out, that was only a very small part of the job.
+
+After spending more than a decade in software engineering, ...">
+  
+  <title>Life Lessons from 10+ Years as a Software Engineer [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2026/04/10/CAP-Theorem/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        CAP Theorem Explained Like a Real System Breaks
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2025/09/18/Mastering-the-Strategy-Design-Pattern-Write-Flexible-and-Reusable-Code/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Mastering the Strategy Design Pattern: Write Flexible and Reusable Code
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Life Lessons from 10+ Years as a Software Engineer</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2026-01-26</span>
+      
+        <span id = "post-title-updated">Updated at 2026-10-29</span>
+      
+      <span> - 5 min. read </span>
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/Personal/">Personal</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/Career/">Career</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Software-Engineering/">Software Engineering</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Lessons/">Lessons</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Personal-Growth/">Personal Growth</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/Tech-Life/">Tech Life</a>
+      
+      </span>
+      
+    </p>
+    
+    <blockquote>
+<p>Ten years ago, I thought being a good software engineer meant writing clever code.<br>Turns out, that was only a very small part of the job.</p>
+</blockquote>
+<p>After spending <strong>more than a decade in software engineering</strong>, across different stacks, roles, failures, deadlines, and late-night debugging sessions, I’ve realized that the <em>real lessons</em> have very little to do with frameworks and a lot to do with <strong>people, mindset, and sustainability</strong>.</p>
+<p>This post isn’t about how to become a 10x engineer.<br>It’s about what quietly shapes you <em>over time</em>—sometimes without you noticing.</p>
+<hr>
+<h2 id="1-Your-Code-Is-Not-Your-Identity"><a href="#1-Your-Code-Is-Not-Your-Identity" class="headerlink" title="1. Your Code Is Not Your Identity"></a>1. Your Code Is Not Your Identity</h2><p>Early in my career, I took code reviews personally.<br>If someone criticized my approach, it felt like <em>they were criticizing me</em>.</p>
+<p>Over time, I learned something freeing:<br><strong>Bad code doesn’t mean you’re a bad engineer.</strong></p>
+<p>Code is temporary.<br>You grow, teams change, requirements change—and code changes with them.</p>
+<p>Once you detach your ego from your code:</p>
+<ul>
+<li>You learn faster</li>
+<li>You collaborate better</li>
+<li>You stop being defensive and start being curious</li>
+</ul>
+<hr>
+<h2 id="2-Simple-Code-Beats-Clever-Code-Almost-Always"><a href="#2-Simple-Code-Beats-Clever-Code-Almost-Always" class="headerlink" title="2. Simple Code Beats Clever Code (Almost Always)"></a>2. Simple Code Beats Clever Code (Almost Always)</h2><p>There was a phase where I loved writing “smart” solutions.<br>One-liners. Abstractions. Magic.</p>
+<p>Then I had to <strong>maintain my own clever code six months later</strong>.</p>
+<p>That’s when it hit me:</p>
+<blockquote>
+<p>Code is read far more often than it is written.</p>
+</blockquote>
+<p>The best compliment your code can get is not<br>“Wow, that’s clever”, but<br><strong>“Oh… this is easy to understand.”</strong></p>
+<p>Future-you (and your teammates) will thank present-you for choosing clarity.</p>
+<hr>
+<h2 id="3-Debugging-Teaches-You-More-Than-Tutorials-Ever-Will"><a href="#3-Debugging-Teaches-You-More-Than-Tutorials-Ever-Will" class="headerlink" title="3. Debugging Teaches You More Than Tutorials Ever Will"></a>3. Debugging Teaches You More Than Tutorials Ever Will</h2><p>Tutorials are great. Documentation is essential.<br>But <strong>debugging production issues</strong> is where real learning happens.</p>
+<p>Those moments when:</p>
+<ul>
+<li>Nothing works</li>
+<li>Logs don’t make sense</li>
+<li>The issue happens “only sometimes”</li>
+</ul>
+<p>They force you to:</p>
+<ul>
+<li>Think deeply</li>
+<li>Ask better questions</li>
+<li>Understand systems, not just syntax</li>
+</ul>
+<p>Painful? Yes.<br>Valuable? Absolutely.</p>
+<hr>
+<h2 id="4-Soft-Skills-Will-Outgrow-Your-Technical-Skills"><a href="#4-Soft-Skills-Will-Outgrow-Your-Technical-Skills" class="headerlink" title="4. Soft Skills Will Outgrow Your Technical Skills"></a>4. Soft Skills Will Outgrow Your Technical Skills</h2><p>This one surprised me.</p>
+<p>At some point, your growth stops being limited by what you <em>know</em> and starts being limited by how well you:</p>
+<ul>
+<li>Communicate</li>
+<li>Explain trade-offs</li>
+<li>Listen</li>
+<li>Write clearly</li>
+<li>Handle disagreements</li>
+</ul>
+<p>Great engineers don’t just solve problems.<br>They <strong>make problems understandable</strong> to others.</p>
+<hr>
+<h2 id="5-Burnout-Is-Real-and-Sneaky"><a href="#5-Burnout-Is-Real-and-Sneaky" class="headerlink" title="5. Burnout Is Real (and Sneaky)"></a>5. Burnout Is Real (and Sneaky)</h2><p>Burnout doesn’t always arrive loudly.<br>Sometimes it looks like:</p>
+<ul>
+<li>Constant tiredness</li>
+<li>Irritation over small things</li>
+<li>Losing interest in things you once loved</li>
+<li>“Just pushing through” every week</li>
+</ul>
+<p>I learned the hard way that:<br><strong>No project is worth your health.</strong></p>
+<p>Rest is not laziness.<br>Breaks are not weakness.<br>Consistency beats intensity.</p>
+<hr>
+<h2 id="6-Tools-Change-Fundamentals-Don’t"><a href="#6-Tools-Change-Fundamentals-Don’t" class="headerlink" title="6. Tools Change, Fundamentals Don’t"></a>6. Tools Change, Fundamentals Don’t</h2><p>In 10+ years, I’ve seen:</p>
+<ul>
+<li>Languages rise and fall</li>
+<li>Frameworks get hyped and forgotten</li>
+<li>“The next big thing” arrive every year</li>
+</ul>
+<p>But fundamentals remain:</p>
+<ul>
+<li>Data structures</li>
+<li>Networking basics</li>
+<li>Databases</li>
+<li>Operating systems</li>
+<li>Problem-solving mindset</li>
+</ul>
+<p>Chasing every new tool is exhausting.<br>Understanding <em>why things work</em> is timeless.</p>
+<hr>
+<h2 id="7-Saying-“I-Don’t-Know”-Is-a-Strength"><a href="#7-Saying-“I-Don’t-Know”-Is-a-Strength" class="headerlink" title="7. Saying “I Don’t Know” Is a Strength"></a>7. Saying “I Don’t Know” Is a Strength</h2><p>Earlier, I felt pressure to always have answers.</p>
+<p>Now, I’m comfortable saying:</p>
+<blockquote>
+<p>“I don’t know, but I’ll find out.”</p>
+</blockquote>
+<p>It builds trust.<br>It opens learning.<br>It prevents bad decisions based on assumptions.</p>
+<p>The smartest people I’ve worked with ask the most questions.</p>
+<hr>
+<h2 id="8-Your-Career-Is-a-Marathon-Not-a-Sprint"><a href="#8-Your-Career-Is-a-Marathon-Not-a-Sprint" class="headerlink" title="8. Your Career Is a Marathon, Not a Sprint"></a>8. Your Career Is a Marathon, Not a Sprint</h2><p>Comparing yourself to others is tempting:</p>
+<ul>
+<li>Someone gets promoted faster</li>
+<li>Someone earns more</li>
+<li>Someone knows more tech</li>
+</ul>
+<p>But careers are long.<br>And everyone has different starting points, responsibilities, and priorities.</p>
+<p>Focus on:</p>
+<ul>
+<li>Learning steadily</li>
+<li>Staying curious</li>
+<li>Building things you’re proud of</li>
+</ul>
+<p>Slow progress over many years beats fast progress that burns out early.</p>
+<hr>
+<h2 id="9-Documentation-Is-an-Act-of-Kindness"><a href="#9-Documentation-Is-an-Act-of-Kindness" class="headerlink" title="9. Documentation Is an Act of Kindness"></a>9. Documentation Is an Act of Kindness</h2><p>Good documentation is empathy in written form.</p>
+<p>Whether it’s:</p>
+<ul>
+<li>README files</li>
+<li>Comments</li>
+<li>Architecture notes</li>
+</ul>
+<p>You’re helping:</p>
+<ul>
+<li>Your teammates</li>
+<li>New joiners</li>
+<li>And most importantly… future you</li>
+</ul>
+<p>If it feels “obvious” today, it won’t be in six months.</p>
+<hr>
+<h2 id="10-Enjoy-the-Journey-Seriously"><a href="#10-Enjoy-the-Journey-Seriously" class="headerlink" title="10. Enjoy the Journey (Seriously)"></a>10. Enjoy the Journey (Seriously)</h2><p>It’s easy to postpone happiness:</p>
+<blockquote>
+<p>“After this release…”<br>“Once I switch jobs…”<br>“When I learn this tech…”</p>
+</blockquote>
+<p>But the truth is:<br>There will <em>always</em> be another task, another goal, another deadline.</p>
+<p>Celebrate small wins.<br>Enjoy solving problems.<br>Appreciate how far you’ve already come.</p>
+<hr>
+<h2 id="Final-Thoughts"><a href="#Final-Thoughts" class="headerlink" title="Final Thoughts"></a>Final Thoughts</h2><p>If I could give one piece of advice to my younger self, it would be this:</p>
+<blockquote>
+<p><strong>Be patient with yourself. Growth is happening even when it feels slow.</strong></p>
+</blockquote>
+<p>Software engineering isn’t just about machines and code—it’s about <strong>becoming a better thinker, communicator, and human over time</strong>.</p>
+<p>And that journey?<br>It’s worth it.</p>
+<hr>
+<p><em>If this resonated with you, feel free to share it with someone who’s early in their tech journey—or someone who needs a reminder that they’re doing just fine.</em></p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Your-Code-Is-Not-Your-Identity"><span class="toc-text">1. Your Code Is Not Your Identity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Simple-Code-Beats-Clever-Code-Almost-Always"><span class="toc-text">2. Simple Code Beats Clever Code (Almost Always)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Debugging-Teaches-You-More-Than-Tutorials-Ever-Will"><span class="toc-text">3. Debugging Teaches You More Than Tutorials Ever Will</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Soft-Skills-Will-Outgrow-Your-Technical-Skills"><span class="toc-text">4. Soft Skills Will Outgrow Your Technical Skills</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Burnout-Is-Real-and-Sneaky"><span class="toc-text">5. Burnout Is Real (and Sneaky)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Tools-Change-Fundamentals-Don%E2%80%99t"><span class="toc-text">6. Tools Change, Fundamentals Don’t</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Saying-%E2%80%9CI-Don%E2%80%99t-Know%E2%80%9D-Is-a-Strength"><span class="toc-text">7. Saying “I Don’t Know” Is a Strength</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Your-Career-Is-a-Marathon-Not-a-Sprint"><span class="toc-text">8. Your Career Is a Marathon, Not a Sprint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Documentation-Is-an-Act-of-Kindness"><span class="toc-text">9. Documentation Is an Act of Kindness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Enjoy-the-Journey-Seriously"><span class="toc-text">10. Enjoy the Journey (Seriously)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Thoughts"><span class="toc-text">Final Thoughts</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2026/04/10/CAP-Theorem/" class="prev">&larr; Prev post CAP Theorem Explained Like a Real System Breaks</a>
+  
+
+  
+
+  
+    <a href="/2025/09/18/Mastering-the-Strategy-Design-Pattern-Write-Flexible-and-Reusable-Code/" class="next">Next post Mastering the Strategy Design Pattern: Write Flexible and Reusable Code &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

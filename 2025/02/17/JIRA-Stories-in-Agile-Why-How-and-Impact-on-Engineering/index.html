@@ -1,0 +1,429 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="In Agile and Scrum, work is broken into small, deliverable units. User stories are the primary way teams express those units—and JIRA is where many teams track them. Understanding why JIRA stories ...">
+  
+  <title>JIRA Stories in Agile: Why They’re Needed, How They’re Calculated, and Impact on Engineering [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2025/02/22/The-Ultimate-Docker-Duo-How-Portainer-and-Watchtower-Revolutionized-My-Workflow/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        The Ultimate Docker Duo: How Portainer and Watchtower Revolutionized My Workflow
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2025/01/06/How-I-Set-Up-GitLab-Runner-on-My-Raspberry-Pi-4-And-You-Can-Too/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        How I Set Up GitLab Runner on My Raspberry Pi 4 (And You Can Too)
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>JIRA Stories in Agile: Why They’re Needed, How They’re Calculated, and Impact on Engineering</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2025-02-17</span>
+      
+        <span id = "post-title-updated">Updated at 2026-10-29</span>
+      
+      <span> - 5 min. read </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/agile/">agile</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/jira/">jira</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/project-management/">project-management</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/engineering/">engineering</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/scrum/">scrum</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>In Agile and Scrum, work is broken into small, deliverable units. <strong>User stories</strong> are the primary way teams express those units—and <strong>JIRA</strong> is where many teams track them. Understanding why JIRA stories exist, how they’re estimated, and how they affect engineering helps teams use them well instead of as busywork.</p>
+<hr>
+<h3 id="Why-JIRA-Stories-Are-Needed"><a href="#Why-JIRA-Stories-Are-Needed" class="headerlink" title="Why JIRA Stories Are Needed"></a>Why JIRA Stories Are Needed</h3><p>Stories in JIRA are more than tickets; they’re the main way Agile teams align on <em>what</em> to build and <em>why</em>.</p>
+<p><strong>Clarity and shared understanding.</strong><br>A good story has a clear goal (often in the form “As a [user], I want [something] so that [benefit]”). That keeps product, design, and engineering on the same page and reduces miscommunication.</p>
+<p><strong>Prioritisation and focus.</strong><br>Backlogs in JIRA are ordered by value and urgency. Stories make it explicit what’s in scope for a sprint and what’s not, so the team can say “no” to the rest without guilt.</p>
+<p><strong>Traceability and accountability.</strong><br>Every story has a lifecycle: To Do → In Progress → Done. That gives visibility into who is doing what, what’s blocked, and what’s delivered—useful for stakeholders and for retrospectives.</p>
+<p><strong>Incremental delivery.</strong><br>Stories are sized so they can be completed in a sprint. That supports the Agile idea of shipping small, working increments instead of one big release at the end.</p>
+<p>Without a consistent place to write, order, and track these units (like JIRA), backlogs and sprint plans easily become scattered across docs and chats, and the benefits of Agile diminish.</p>
+<hr>
+<h3 id="How-Stories-Are-“Calculated”-Estimation"><a href="#How-Stories-Are-“Calculated”-Estimation" class="headerlink" title="How Stories Are “Calculated” (Estimation)"></a>How Stories Are “Calculated” (Estimation)</h3><p>In JIRA, “calculation” usually means <strong>estimation</strong>—assigning size or effort so the team can plan capacity and predict delivery.</p>
+<p><strong>Story points.</strong><br>Teams often estimate in <em>story points</em> (e.g. 1, 2, 3, 5, 8, 13). Points represent <em>relative</em> complexity and effort, not hours. A “5” is roughly twice as big as a “3”; the actual number is less important than the relative scale.</p>
+<p><strong>Planning Poker.</strong><br>In planning sessions, each developer picks a point value; discussion follows when there’s disagreement. That surfaces assumptions and different interpretations of the work, which improves the estimate and shared understanding.</p>
+<p><strong>Velocity.</strong><br>Over time, the team tracks how many points they complete per sprint (velocity). That historical data is used to decide how many points to commit to in the next sprint—so “calculation” here is: <em>past velocity + new estimates &#x3D; planned scope</em>.</p>
+<p><strong>T-shirt sizes and other schemes.</strong><br>Some teams use S&#x2F;M&#x2F;L or hours instead of points. The idea is the same: a shared, relative sense of size so the team can plan and commit realistically.</p>
+<p>JIRA supports this with custom point fields, sprint boards, and velocity charts. The “calculation” is not a formula in a spreadsheet; it’s the process of estimating, committing, and comparing planned vs. delivered points (or equivalent).</p>
+<hr>
+<h3 id="How-Engineering-Is-Affected"><a href="#How-Engineering-Is-Affected" class="headerlink" title="How Engineering Is Affected"></a>How Engineering Is Affected</h3><p>How stories are written and used in JIRA directly affects how engineers work.</p>
+<p><strong>Positive effects</strong></p>
+<ul>
+<li><strong>Scope control.</strong><br>Well-sized stories keep sprints achievable. Engineers know what “done” means and can focus instead of chasing moving targets.</li>
+<li><strong>Definition of Done.</strong><br>When “Done” in JIRA includes “code reviewed, tested, deployed,” quality and process become part of the workflow, not an afterthought.</li>
+<li><strong>Fewer context switches.</strong><br>A clear backlog and sprint plan reduce ad-hoc requests and “just one more thing,” so engineers can stay in flow.</li>
+<li><strong>Visibility.</strong><br>Managers and product can see progress in JIRA instead of asking for status all the time, which cuts interruptions.</li>
+</ul>
+<p><strong>Risks and downsides</strong></p>
+<ul>
+<li><strong>Overhead.</strong><br>Too many tiny stories or heavy process (labels, links, subtasks for everything) can feel like paperwork and slow engineers down.</li>
+<li><strong>Gaming the system.</strong><br>If “velocity” or “story count” is used as a performance metric, engineers may inflate points or split stories to look productive—which undermines estimation and trust.</li>
+<li><strong>Rigidity.</strong><br>Treating every change as a formal story can slow down small fixes or experiments. Good teams keep a balance: small, obvious work can be “just do it”; bigger or riskier work gets a story.</li>
+<li><strong>Estimation pressure.</strong><br>Estimation is inherently uncertain. Pushing for “accurate” point estimates can create stress and long planning meetings; the goal should be “good enough to plan,” not precision.</li>
+</ul>
+<p>Engineering works best when JIRA stories support the team: clarifying scope, reducing ambiguity, and protecting focus—not when they become the main output to optimise.</p>
+<hr>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p><strong>JIRA stories in Agile</strong> give teams a single place to define, prioritise, and track work in small units. They’re “calculated” through relative estimation (e.g. story points) and velocity, which drives sprint planning and capacity. For engineering, they can improve clarity, focus, and predictability—but only if the process stays light and the goal remains <em>shipping value</em>, not maximising points or ticket count. Use stories to serve the team; don’t let the tool dictate how the team works.</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-JIRA-Stories-Are-Needed"><span class="toc-text">Why JIRA Stories Are Needed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Stories-Are-%E2%80%9CCalculated%E2%80%9D-Estimation"><span class="toc-text">How Stories Are “Calculated” (Estimation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Engineering-Is-Affected"><span class="toc-text">How Engineering Is Affected</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-text">Summary</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2025/02/22/The-Ultimate-Docker-Duo-How-Portainer-and-Watchtower-Revolutionized-My-Workflow/" class="prev">&larr; Prev post The Ultimate Docker Duo: How Portainer and Watchtower Revolutionized My Workflow</a>
+  
+
+  
+
+  
+    <a href="/2025/01/06/How-I-Set-Up-GitLab-Runner-on-My-Raspberry-Pi-4-And-You-Can-Too/" class="next">Next post How I Set Up GitLab Runner on My Raspberry Pi 4 (And You Can Too) &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

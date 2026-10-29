@@ -1,0 +1,733 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ashutosh Kumar Singh">
+  
+  
+  
+  
+    <meta name="description" content="Learning a New Programming Language in 30 Days — A Practical Plan
+Learning a new programming language is easy.
+Learning whether that language deserves a place in your engineering organization is mu...">
+  
+  <title>Learning a new programming language in 30 days [ Juggernaut451 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2026/10/14/The-Art-of-the-Trade-off-Why-Bare-Metal-Kubernetes-is-a-Beautiful-Maddening-Beast/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        The Art of the Trade-off: Why Bare Metal Kubernetes is a Beautiful, Maddening Beast
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2026/06/17/The-Archittect-s-Manifesto/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        The Archittect's Manifesto
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg"/>
+          <div id="homelink">Juggernaut451</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Blog</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Label</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Classification</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/weekly">Weekly</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Learning a new programming language in 30 days</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2026-09-17</span>
+      
+        <span id = "post-title-updated">Updated at 2026-10-29</span>
+      
+      <span> - 11 min. read </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/SoftwareEngineering/">SoftwareEngineering</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/EngineeringLeadership/">EngineeringLeadership</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/TechLeadership/">TechLeadership</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/ProgrammingLanguages/">ProgrammingLanguages</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/DeveloperProductivity/">DeveloperProductivity</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/SoftwareArchitecture/">SoftwareArchitecture</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/TechnologyStrategy/">TechnologyStrategy</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/AIForDevelopers/">AIForDevelopers</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>Learning a New Programming Language in 30 Days — A Practical Plan</p>
+<p>Learning a new programming language is easy.</p>
+<p>Learning whether that language deserves a place in your engineering organization is much harder.</p>
+<p>For a junior developer, learning a language often means understanding syntax, writing a few programs, and becoming comfortable with the compiler.</p>
+<p>For a senior engineer or technology leader, the bar should be considerably higher.</p>
+<p>The real questions are:</p>
+<ul>
+<li>What problems does this language solve better?</li>
+<li>What trade-offs does it introduce?</li>
+<li>How does it affect developer productivity?</li>
+<li>What does the operational model look like?</li>
+<li>Can we hire engineers for it?</li>
+<li>Is the ecosystem mature enough?</li>
+<li>What happens when something breaks at 2 AM?</li>
+<li>Will the language still be a good decision five years from now?</li>
+</ul>
+<p>That’s how I approach learning a new programming language.</p>
+<p>The first 30 days aren’t about becoming an expert.</p>
+<p>They’re about determining whether the language is worth becoming an expert in.</p>
+<p>⸻</p>
+<p>Start With the Problem, Not the Language</p>
+<p>One of the most expensive mistakes in technology is starting with a technology and looking for a problem afterward.</p>
+<p>The same applies to programming languages.</p>
+<p>Don’t start with:</p>
+<p>“Go is becoming popular. Let’s learn Go.”</p>
+<p>Start with:</p>
+<p>“We have a class of systems where our current technology has limitations. Does Go address those limitations?”</p>
+<p>A language should have a job to do.</p>
+<p>Perhaps you need:</p>
+<ul>
+<li>Better concurrency</li>
+<li>Lower infrastructure costs</li>
+<li>Faster startup times</li>
+<li>Better memory safety</li>
+<li>Higher throughput</li>
+<li>More predictable performance</li>
+<li>Better developer productivity</li>
+<li>Stronger type safety</li>
+<li>Easier deployment</li>
+<li>Better tooling</li>
+</ul>
+<p>The language becomes interesting only after the problem is clear.</p>
+<p>⸻</p>
+<p>The 30-Day Evaluation</p>
+<p>For senior engineers, I prefer a 30-day evaluation to be treated as a technology spike, not a course.</p>
+<p>The deliverable isn’t:</p>
+<p>“I completed a programming course.”</p>
+<p>The deliverable is:</p>
+<p>“I can explain where this language fits, where it doesn’t, and what adopting it would cost us.”</p>
+<p>That is a much higher-value outcome.</p>
+<p>⸻</p>
+<p>Week 1: Understand the Language’s Philosophy</p>
+<p>Don’t start by memorizing syntax.</p>
+<p>Understand why the language exists.</p>
+<p>Every language makes trade-offs.</p>
+<p>Some prioritize:</p>
+<ul>
+<li>Developer velocity</li>
+<li>Runtime performance</li>
+<li>Memory safety</li>
+<li>Simplicity</li>
+<li>Expressiveness</li>
+<li>Concurrency</li>
+<li>Functional programming</li>
+<li>Object-oriented design</li>
+<li>Compile-time guarantees</li>
+</ul>
+<p>Understanding these trade-offs gives you a mental model for the language.</p>
+<p>For example, when learning Rust, ownership isn’t simply another feature to memorize.</p>
+<p>It’s central to understanding how Rust approaches memory safety.</p>
+<p>When learning Go, interfaces, composition, simplicity, and concurrency are part of a broader philosophy.</p>
+<p>When learning TypeScript, the type system exists on top of JavaScript’s runtime model, which creates its own set of trade-offs.</p>
+<p>Learn the philosophy first.</p>
+<p>The syntax will follow.</p>
+<p>⸻</p>
+<p>Week 2: Build the Same Problem You Already Understand</p>
+<p>This is one of the most useful techniques for experienced engineers.</p>
+<p>Don’t build a todo application.</p>
+<p>Build something you already understand deeply.</p>
+<p>If you’re a backend engineer, take a real backend problem.</p>
+<p>For example:</p>
+<p>HTTP API<br>   ↓<br>Authentication<br>   ↓<br>Business Logic<br>   ↓<br>Database<br>   ↓<br>Cache<br>   ↓<br>Queue</p>
+<p>Implement a simplified version in the new language.</p>
+<p>Why?</p>
+<p>Because now you aren’t learning two things simultaneously.</p>
+<p>You already understand the problem.</p>
+<p>The only variable is the language.</p>
+<p>That allows you to ask much better questions:</p>
+<p>Is this easier?</p>
+<p>Is this harder?</p>
+<p>Is this safer?</p>
+<p>Is this more verbose?</p>
+<p>Is the resulting code easier to maintain?</p>
+<p>What happens when the system fails?</p>
+<p>Those are engineering questions—not tutorial questions.</p>
+<p>⸻</p>
+<p>Week 3: Evaluate the Engineering Ecosystem</p>
+<p>A programming language doesn’t exist in isolation.</p>
+<p>The language itself may be excellent while its ecosystem is immature.</p>
+<p>Evaluate:</p>
+<p>Tooling</p>
+<p>Look at:</p>
+<ul>
+<li>Compiler</li>
+<li>Formatter</li>
+<li>Linter</li>
+<li>Debugger</li>
+<li>IDE support</li>
+<li>Build tooling</li>
+<li>Dependency management</li>
+</ul>
+<p>Good tooling compounds developer productivity.</p>
+<p>⸻</p>
+<p>Testing</p>
+<p>Ask:</p>
+<p>How easy is it to write reliable tests?</p>
+<p>Look at:</p>
+<ul>
+<li>Unit testing</li>
+<li>Integration testing</li>
+<li>Mocking</li>
+<li>Test fixtures</li>
+<li>Race detection</li>
+<li>Property-based testing</li>
+</ul>
+<p>Testing should feel like part of the language ecosystem rather than an afterthought.</p>
+<p>⸻</p>
+<p>Observability</p>
+<p>Production systems need visibility.</p>
+<p>Evaluate:</p>
+<ul>
+<li>Logging</li>
+<li>Metrics</li>
+<li>Tracing</li>
+<li>Profiling</li>
+<li>Error reporting</li>
+</ul>
+<p>A language that performs extremely well but makes production debugging painful can create a very different total cost of ownership.</p>
+<p>⸻</p>
+<p>Week 4: Evaluate Production Economics</p>
+<p>This is where senior engineers should go beyond technical curiosity.</p>
+<p>A language decision is also a business decision.</p>
+<p>Evaluate the total cost of ownership.</p>
+<p>That includes:</p>
+<p>Infrastructure</p>
+<p>Measure:</p>
+<ul>
+<li>CPU consumption</li>
+<li>Memory consumption</li>
+<li>Startup time</li>
+<li>Request latency</li>
+<li>Throughput</li>
+<li>Container size</li>
+</ul>
+<p>Don’t rely solely on benchmark articles.</p>
+<p>Run your own workload.</p>
+<p>Your workload is what matters.</p>
+<p>⸻</p>
+<p>Developer Productivity</p>
+<p>Ask:</p>
+<p>How quickly can an experienced engineer become productive?</p>
+<p>Measure things such as:</p>
+<ul>
+<li>Time to implement a feature</li>
+<li>Time to debug a defect</li>
+<li>Time to understand unfamiliar code</li>
+<li>Time to write tests</li>
+<li>Time to onboard a new engineer</li>
+</ul>
+<p>Performance isn’t only about CPU and memory.</p>
+<p>Developer time is also a resource.</p>
+<p>⸻</p>
+<p>The “2 AM Test”</p>
+<p>One of my favorite questions when evaluating technology is:</p>
+<p>“What happens when this system breaks at 2 AM?”</p>
+<p>Imagine the production system is failing.</p>
+<p>Can an engineer quickly determine:</p>
+<ul>
+<li>What failed?</li>
+<li>Where it failed?</li>
+<li>Why it failed?</li>
+<li>What changed?</li>
+<li>How to reproduce it?</li>
+<li>How to roll back?</li>
+<li>How to fix it?</li>
+</ul>
+<p>This is where technology choices become real.</p>
+<p>A language that looks fantastic in a benchmark but creates operational complexity may not be the right choice for every workload.</p>
+<p>Production engineering is ultimately about managing failure.</p>
+<p>⸻</p>
+<p>Evaluate the Language Against Your Existing Stack</p>
+<p>A new language doesn’t enter an empty organization.</p>
+<p>You already have:</p>
+<ul>
+<li>Engineers</li>
+<li>Services</li>
+<li>CI&#x2F;CD</li>
+<li>Infrastructure</li>
+<li>Monitoring</li>
+<li>Security processes</li>
+<li>Coding standards</li>
+<li>Deployment systems</li>
+<li>Existing languages</li>
+</ul>
+<p>So ask:</p>
+<p>“How well does this language fit into what we already have?”</p>
+<p>For example:</p>
+<p>Existing Platform<br>       |<br>       +– CI&#x2F;CD<br>       +– Kubernetes<br>       +– Observability<br>       +– Security<br>       +– Databases<br>       +– APIs<br>       |<br>       +– New Language</p>
+<p>Integration costs matter.</p>
+<p>The best language on paper can become the wrong organizational decision if introducing it creates excessive complexity.</p>
+<p>⸻</p>
+<p>Don’t Ignore Hiring</p>
+<p>This is frequently underestimated.</p>
+<p>A language isn’t just a compiler.</p>
+<p>It’s an engineering talent market.</p>
+<p>Ask:</p>
+<ul>
+<li>Can we hire experienced engineers?</li>
+<li>How long does onboarding take?</li>
+<li>Are senior engineers available?</li>
+<li>How strong is the community?</li>
+<li>Are there good learning resources?</li>
+<li>Can existing engineers transition into it?</li>
+</ul>
+<p>You don’t necessarily need a massive talent pool.</p>
+<p>But you should understand the talent implications before making the technology strategic.</p>
+<p>⸻</p>
+<p>Evaluate the “Five-Year Question”</p>
+<p>A technology decision shouldn’t be based solely on today’s excitement.</p>
+<p>Ask:</p>
+<p>“Would I be comfortable building a critical platform on this technology for the next five years?”</p>
+<p>Look at:</p>
+<ul>
+<li>Language governance</li>
+<li>Release cadence</li>
+<li>Backward compatibility</li>
+<li>Community health</li>
+<li>Ecosystem maturity</li>
+<li>Corporate support where relevant</li>
+<li>Security response</li>
+<li>Library maintenance</li>
+</ul>
+<p>No prediction is guaranteed.</p>
+<p>But you can evaluate the evidence available today.</p>
+<p>⸻</p>
+<p>Use AI as a Force Multiplier</p>
+<p>Learning a language in 2026 is fundamentally different from learning one ten years ago.</p>
+<p>AI can dramatically shorten the feedback loop.</p>
+<p>Instead of spending an hour figuring out an unfamiliar compiler error, you can ask an AI assistant to explain:</p>
+<p>“What does this error mean, and what is the idiomatic way to solve it?”</p>
+<p>You can also ask it to:</p>
+<ul>
+<li>Review your code</li>
+<li>Compare implementations</li>
+<li>Explain unfamiliar idioms</li>
+<li>Generate test cases</li>
+<li>Identify potential edge cases</li>
+<li>Explain performance implications</li>
+<li>Translate an implementation from another language</li>
+</ul>
+<p>But there is an important distinction:</p>
+<p>Use AI to accelerate understanding, not replace it.</p>
+<p>If AI writes the entire application, you may finish the project without learning the language.</p>
+<p>The better workflow is:</p>
+<p>Attempt<br>   ↓<br>Get Stuck<br>   ↓<br>Ask AI<br>   ↓<br>Understand<br>   ↓<br>Implement<br>   ↓<br>Review<br>   ↓<br>Measure<br>   ↓<br>Improve</p>
+<p>The goal isn’t to produce code faster.</p>
+<p>It’s to increase the rate at which you become an effective engineer in the new ecosystem.</p>
+<p>⸻</p>
+<p>Your 30-Day Scorecard</p>
+<p>I don’t recommend reducing a technology decision to a single score.</p>
+<p>Instead, create a factual decision record covering:</p>
+<p>Dimension	Questions<br>Problem Fit	What problem does it solve?<br>Developer Experience	Is it easy to build and debug?<br>Performance	Does it meet our workload requirements?<br>Reliability	How does it behave under failure?<br>Tooling	Are development tools mature?<br>Ecosystem	Are critical libraries available?<br>Operations	Can we observe and operate it effectively?<br>Security	What security properties and risks exist?<br>Hiring	Can we build sustainable engineering capability?<br>Migration	Can it coexist with our current stack?<br>Cost	What is the infrastructure + engineering cost?<br>Longevity	Is there evidence of sustained ecosystem health?</p>
+<p>The output shouldn’t be:</p>
+<p>“Language X is the best.”</p>
+<p>It should be:</p>
+<p>“Language X is particularly suited to these workloads, has these strengths, introduces these trade-offs, and would require these organizational changes.”</p>
+<p>That is a much more useful technology decision.</p>
+<p>⸻</p>
+<p>What Should You Know After 30 Days?</p>
+<p>At the end of the month, a senior engineer should be able to answer five questions:</p>
+<ol>
+<li>Can I build with it?</li>
+</ol>
+<p>Not just follow a tutorial.</p>
+<p>Build something independently.</p>
+<ol start="2">
+<li>Do I understand its trade-offs?</li>
+</ol>
+<p>Every strength usually comes with a cost somewhere else.</p>
+<ol start="3">
+<li>Can I operate it?</li>
+</ol>
+<p>You should understand how the resulting application behaves in production.</p>
+<ol start="4">
+<li>Can my organization support it?</li>
+</ol>
+<p>Think talent, tooling, infrastructure, security, and operations.</p>
+<ol start="5">
+<li>Where should we NOT use it?</li>
+</ol>
+<p>This may be the most important question.</p>
+<p>Technology maturity includes knowing when not to use a technology.</p>
+<p>⸻</p>
+<p>The Real Skill Is Technology Adaptability</p>
+<p>The value of learning a new programming language isn’t necessarily the language itself.</p>
+<p>It’s the ability to enter an unfamiliar ecosystem and quickly determine:</p>
+<p>What is different?</p>
+<p>What is better?</p>
+<p>What is worse?</p>
+<p>What are the hidden costs?</p>
+<p>Where does this technology belong?</p>
+<p>That is a fundamentally different skill from memorizing syntax.</p>
+<p>For senior engineers and technology leaders, that’s the real objective of the 30-day challenge.</p>
+<p>Don’t learn a programming language just to add another language to your résumé.</p>
+<p>Learn it well enough to understand its engineering model, build something meaningful, measure it against a real problem, and make an informed technology decision.</p>
+<p>Thirty days should not turn you into an expert.</p>
+<p>It should turn you into someone capable of answering a much more valuable question:</p>
+<p>“Given the problem in front of us, is this the right tool—and why?”</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2026/10/14/The-Art-of-the-Trade-off-Why-Bare-Metal-Kubernetes-is-a-Beautiful-Maddening-Beast/" class="prev">&larr; Prev post The Art of the Trade-off: Why Bare Metal Kubernetes is a Beautiful, Maddening Beast</a>
+  
+
+  
+
+  
+    <a href="/2026/06/17/The-Archittect-s-Manifesto/" class="next">Next post The Archittect's Manifesto &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Ashutosh Kumar Singh using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://res.cloudinary.com/juggernaut451/image/upload/v1509979758/avtaar_ghdisj.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/juggernaut451">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/juggernaut451">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.linkedin.com/in/ashutosh-kumar-singh-a4b59785/">
+        
+          <i class="icon iconfont linkedin">&#xe601;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://plus.google.com/u/0/+ashutoshsingh27015">
+        
+          <i class="icon iconfont google-plus">&#xe603;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.npmjs.org/~juggernaut451">
+        
+          <i class="icon iconfont npmjs">&#xe608;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG6_rhu87x.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979434/homeBG5_dldtzr.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979447/homeBG4_yai03z.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979444/homeBG3_szuyek.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979450/homeBG2_akaqcl.jpg');
+    
+      backgroundImages.push('http://res.cloudinary.com/juggernaut451/image/upload/v1509979442/homeBG_niihly.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["flash2"],"timer":true,"delay":100000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "34495E";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
